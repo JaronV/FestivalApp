@@ -22,7 +22,7 @@ namespace FestivalApp.ViewModel
 
         public ContactpersoonVM()
         {
-            _contactPersons = Contactperson.GetContactPersonType();
+           _contactPersons = Contactperson.GetContactPersonType();
             _jobroles = ContactpersonType.GetContactPersonType();
         }
 

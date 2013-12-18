@@ -18,7 +18,7 @@ namespace FestivalApp.Model
 
         public static ObservableCollection<Genre> GetGenres()
         {
-
+            Soorten = new ObservableCollection<Genre>();
 
             string sql = "SELECT * FROM Genre";
 
@@ -72,5 +72,28 @@ namespace FestivalApp.Model
             }
             
         }
+
+        public static ObservableCollection<Genre> GetGenreByID(int bandID)
+        {
+            ObservableCollection<Genre> list = new ObservableCollection<Genre>();
+
+
+            string sql = "SELECT ID,Name FROM [Bands_Genre] INNER JOIN [Genre] on [Bands_Genre].[GenreID] = [Genre].[ID] WHERE BandID = @ID";
+            
+         
+            DbParameter par = Database.AddParameter("@ID", bandID);
+            DbDataReader reader = Database.GetData(sql,par);
+
+            while (reader.Read())
+            {
+                list.Add(VerwerkRij(reader));
+
+            }
+            return list;
+  
+        }
+
+    
+
     }
 }

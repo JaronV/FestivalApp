@@ -28,6 +28,7 @@ namespace FestivalApp.ViewModel
         {
             _bands = Band.getBands();
             _genres = Genre.GetGenres();
+          
         }
         #region fields
         private ObservableCollection<Band> _bands = new ObservableCollection<Band>();
@@ -69,8 +70,8 @@ namespace FestivalApp.ViewModel
 
         public Band SelectedBand
         {
-            get { return _selectedBand; }
-            set { _selectedBand = value; OnPropertyChanged("SelectedBand"); }
+            get { return _selectedBand;  }
+            set { _selectedBand = value; OnPropertyChanged("SelectedBand"); _huidigegenres = Genre.GetGenreByID(SelectedBand.ID); OnPropertyChanged("Huidigegenres"); }
         }
 
         #endregion
@@ -125,7 +126,7 @@ namespace FestivalApp.ViewModel
 
         private void SaveBand()
         {
-            Band.AddType(SelectedBand);
+            Band.AddType(SelectedBand, Huidigegenres);
         }
 
         private void DeleteBand()

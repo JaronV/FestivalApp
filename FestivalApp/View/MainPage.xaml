@@ -3,9 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:FestivalApp.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="1024">
     <Grid>
+        <Grid.DataContext>
+            <vm:MainPageVM/>
+        </Grid.DataContext>
         <Label x:Name="lblLineUp" Content="Line Up" HorizontalAlignment="Left" Margin="10,25.04,0,0" VerticalAlignment="Top" Height="46.96" Width="163.207" FontSize="24"/>
     
         <ListView HorizontalAlignment="Left" Height="184" Margin="26,92,0,0" VerticalAlignment="Top" Width="894">

@@ -19,7 +19,7 @@ namespace FestivalApp.Model
 
         public static ObservableCollection<Stage> GetStages()
         {
-
+            Soorten = new ObservableCollection<Stage>();
 
             string sql = "SELECT * FROM Stages";
 

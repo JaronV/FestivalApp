@@ -32,9 +32,13 @@ namespace FestivalApp.Model
                 throw e;
             }
         }
-
+        public override string ToString()
+        {
+            return Name;
+        }
         public static void AddType(TicketType newticket)
         {
+             
             try
             {
              
@@ -54,7 +58,7 @@ namespace FestivalApp.Model
         }
         public static ObservableCollection<TicketType> GetTicketType()
         {
-          
+            Soorten = new ObservableCollection<TicketType>();
 
             string sql = "SELECT * FROM Tickettype";
 
@@ -80,6 +84,21 @@ namespace FestivalApp.Model
             return type;
 
         }
-       
+
+
+        public static TicketType GetTicketTypeByID(int p)
+        {
+            TicketType nieuw = new TicketType();
+            string sql = "SELECT * FROM TicketType WHERE ID like @ID";
+            DbParameter paramID = Database.AddParameter("@ID", p);
+            DbDataReader reader = Database.GetData(sql, paramID);
+
+            while (reader.Read())
+            {
+                nieuw = VerwerkRij(reader);
+            }
+            return nieuw;
+            
+        }
     }
 }

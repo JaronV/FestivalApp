@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:FestivalApp.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="1024">
     <UserControl.Resources>
@@ -11,41 +12,38 @@
                 <TextBlock Text="{Binding Name}"/>
             </StackPanel>
         </DataTemplate>
+        <DataTemplate x:Key="BandTemplate">
+            <StackPanel>
+                <TextBlock Text="{Binding Name}"/>
+            </StackPanel>
+        </DataTemplate>
     </UserControl.Resources>
     <Grid>
-        <ListBox HorizontalAlignment="Left" Height="261" Margin="27,138,0,0" VerticalAlignment="Top" Width="210"/>
-        <Calendar HorizontalAlignment="Left" Margin="10,419,0,0" VerticalAlignment="Top" Height="200" Width="257" RenderTransformOrigin="0.5,0.5">
-            <Calendar.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="-0.259"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="-0.496"/>
-                </TransformGroup>
-            </Calendar.RenderTransform>
-        </Calendar>
+        <Grid.DataContext>
+            <vm:BandsVM/>
+        </Grid.DataContext>
+        <!--ItemsSource="{Binding ContactPersonTypes}" ItemTemplate="{StaticResource ContactPersonTypeTemplate}" SelectedItem="{Binding SelectedContactPerson}"-->
+        <ListBox ItemsSource="{Binding Bands}" ItemTemplate="{StaticResource BandTemplate}" SelectedItem="{Binding SelectedBand}" HorizontalAlignment="Left" Height="261" Margin="27,138,0,0" VerticalAlignment="Top" Width="210"/>
         <Label x:Name="lblBands" Content="Bands&#xD;&#xA;" HorizontalAlignment="Left" Margin="27,86,0,0" VerticalAlignment="Top" Height="47" Width="164" FontSize="24"/>
         <Label x:Name="lblNaam" Content="Naam" HorizontalAlignment="Left" Margin="295,138,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblDatum" Content="Datum" HorizontalAlignment="Left" Margin="294,172,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.131,0.128"/>
-        <Label x:Name="lblBeschrijving" Content="Beschrijving" HorizontalAlignment="Left" Margin="294,219,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.27,1.688"/>
-        <Label x:Name="lblFoto" Content="Foto" HorizontalAlignment="Left" Margin="294,283,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.03,1.348"/>
-        <Label x:Name="lblFacebook" Content="Facebook" HorizontalAlignment="Left" Margin="290,314,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblTwitter" Content="Twitter" HorizontalAlignment="Left" Margin="290,345,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnNew" Content="New" HorizontalAlignment="Left" Margin="388,549,0,0" VerticalAlignment="Top" Width="76" Height="38"/>
-        <Button x:Name="btnToevoegen" Content="Toevoegen" HorizontalAlignment="Left" Margin="493,549,0,0" VerticalAlignment="Top" Width="76" Height="38"/>
-        <Button x:Name="btnVerwijder" Content="Verwijderen" HorizontalAlignment="Left" Margin="592,549,0,0" VerticalAlignment="Top" Width="76" Height="38"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="383,142,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <DatePickerTextBox HorizontalAlignment="Left" Margin="382,177,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="53" Margin="382,219,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="214"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="382,288,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="382,319,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="382,347,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <ListBox ItemsSource="{Binding Genres}" ItemTemplate="{StaticResource GenreTemplate}" SelectedItem="{Binding SelectedAlleGenre}" HorizontalAlignment="Left" Height="114" Margin="386,414,0,0" VerticalAlignment="Top" Width="145"/>
-        <Label Content="Genres&#xD;&#xA;" HorizontalAlignment="Left" Margin="295,414,0,0" VerticalAlignment="Top" Height="26" Width="63"/>
-        <ListBox ItemsSource="{Binding Huidigegenres}" ItemTemplate="{Binding GenreTemplate}" SelectedItem="{Binding SelectedHuidigeGenre }" HorizontalAlignment="Left" Height="114" Margin="576,414,0,0" VerticalAlignment="Top" Width="145"/>
-        <Label Content="Huidig" HorizontalAlignment="Left" Margin="386,385,0,0" VerticalAlignment="Top" Height="24" Width="66"/>
-        <Label Content="Alle" HorizontalAlignment="Left" Margin="576,385,0,0" VerticalAlignment="Top" Height="24" Width="66"/>
-        <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="536,458,0,0" VerticalAlignment="Top" Width="31" Height="19" Click="Button_Click"/>
-        <Button Content="&lt;&lt;" HorizontalAlignment="Left" Margin="536,434,0,0" VerticalAlignment="Top" Width="31" Height="19" Click="Button_Click"/>
+        <Label x:Name="lblBeschrijving" Content="Beschrijving" HorizontalAlignment="Left" Margin="295,184,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.27,1.688"/>
+        <Label x:Name="lblFoto" Content="Foto" HorizontalAlignment="Left" Margin="295,248,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.03,1.348"/>
+        <Label x:Name="lblFacebook" Content="Facebook" HorizontalAlignment="Left" Margin="291,279,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblTwitter" Content="Twitter" HorizontalAlignment="Left" Margin="291,310,0,0" VerticalAlignment="Top"/>
+        <Button Command="{Binding AddBandCommand}" x:Name="btnNew" Content="New" HorizontalAlignment="Left" Margin="389,514,0,0" VerticalAlignment="Top" Width="76" Height="38"/>
+        <Button Command="{Binding SaveBandCommand}" x:Name="btnToevoegen" Content="Toevoegen" HorizontalAlignment="Left" Margin="494,514,0,0" VerticalAlignment="Top" Width="76" Height="38"/>
+        <Button Command="{Binding DeleteBandCommand}" x:Name="btnVerwijder" Content="Verwijderen" HorizontalAlignment="Left" Margin="593,514,0,0" VerticalAlignment="Top" Width="76" Height="38"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="383,142,0,0" TextWrapping="Wrap" Text="{Binding SelectedBand.Name,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="53" Margin="383,184,0,0" TextWrapping="Wrap" Text="{Binding SelectedBand.Description,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="214"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="383,253,0,0" TextWrapping="Wrap" Text="{Binding SelectedBand.Picture,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="383,284,0,0" TextWrapping="Wrap" Text="{Binding SelectedBand.Facebook,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="383,312,0,0" TextWrapping="Wrap" Text="{Binding SelectedBand.Twitter,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <ListBox ItemsSource="{Binding Huidigegenres,UpdateSourceTrigger=PropertyChanged}" ItemTemplate="{StaticResource GenreTemplate}" SelectedItem="{Binding SelectedHuidigeGenre,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="114" Margin="387,379,0,0" VerticalAlignment="Top" Width="145"/>
+        <Label Content="Genres&#xD;&#xA;" HorizontalAlignment="Left" Margin="296,379,0,0" VerticalAlignment="Top" Height="26" Width="63"/>
+        <ListBox ItemsSource="{Binding Genres}" ItemTemplate="{StaticResource GenreTemplate}" SelectedItem="{Binding SelectedAlleGenre }" HorizontalAlignment="Left" Height="114" Margin="577,379,0,0" VerticalAlignment="Top" Width="145"/>
+        <Label Content="Huidig" HorizontalAlignment="Left" Margin="387,350,0,0" VerticalAlignment="Top" Height="24" Width="66"/>
+        <Label Content="Alle" HorizontalAlignment="Left" Margin="577,350,0,0" VerticalAlignment="Top" Height="24" Width="66"/>
+        <Button Command="{Binding VerwijderGenreCommand}" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="537,439,0,0" VerticalAlignment="Top" Width="31" Height="19" RenderTransformOrigin="0.484,0.526" />
+        <Button Command="{Binding VoegGenreToeCommand}" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="537,404,0,0" VerticalAlignment="Top" Width="31" Height="19" />
     </Grid>
 </UserControl>

@@ -38,7 +38,7 @@ namespace FestivalApp.Model
 
             type.ID = Convert.ToInt32(rij["ID"].ToString());
             type.Name = rij["Name"].ToString();
-           
+
             return type;
 
         }
@@ -77,6 +77,30 @@ namespace FestivalApp.Model
         public override string ToString()
         {
             return Name;
+        }
+
+        public static ContactpersonType GetContactPersonTypeByID(int i)
+        {
+            ContactpersonType nieuw = new ContactpersonType();
+            string sql = "SELECT * FROM ContactPersonType WHERE ID like @ID";
+            DbParameter paramID = Database.AddParameter("@ID", i);
+            DbDataReader reader = Database.GetData(sql,paramID);
+
+            while (reader.Read())
+            {
+             nieuw =  VerwerkRijSpecial(reader);
+            }
+            return nieuw;
+        }
+
+        private static ContactpersonType VerwerkRijSpecial(IDataRecord rij)
+        {
+            ContactpersonType type = new ContactpersonType();
+
+            type.ID = Convert.ToInt32(rij["ID"].ToString());
+            type.Name = rij["Name"].ToString();
+
+            return type;
         }
     }
 }

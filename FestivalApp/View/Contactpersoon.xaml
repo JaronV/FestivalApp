@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:FestivalApp.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="1024">
     <UserControl.Resources>
@@ -12,7 +13,11 @@
             </StackPanel>
         </DataTemplate> 
     </UserControl.Resources>
+    
     <Grid>
+        <Grid.DataContext>
+            <vm:ContactpersoonVM />
+        </Grid.DataContext>
         <Label Content="Contactpersonen" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" FontSize="24"/>
         <ListBox ItemsSource="{Binding ContactPersons}" ItemTemplate="{StaticResource ContactPersonTemplate}" SelectedItem="{Binding SelectedContactPersoon}" HorizontalAlignment="Left" Height="286" Margin="30,168,0,0" VerticalAlignment="Top" Width="191.037"/>
         <Label Content="Name" HorizontalAlignment="Left" Margin="256.833,109.923,0,0" VerticalAlignment="Top" FontSize="16"/>
@@ -23,17 +28,18 @@
             SelectedItem="{Binding SelectedContactPersoon.JobRole}" 
             SelectedValue="{Binding SelectedContactPersoon.JobRole.ID}" 
             SelectedValuePath="ID" HorizontalAlignment="Left" Margin="368,161,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="368,118,0,0" TextWrapping="Wrap" Text="{Binding SelectedContactPersoon.Name}" VerticalAlignment="Top" Width="120"/>
+       
         <Button Command="{Binding AddContactPersonCommand}" Content="New" HorizontalAlignment="Left" Margin="257,437,0,0" VerticalAlignment="Top" Width="93" Height="38"/>
         <Button Command="{Binding SaveContactPersonCommand}" Content="Opslaan" HorizontalAlignment="Left" Margin="363,437,0,0" VerticalAlignment="Top" Width="93" Height="38"/>
         <Button Command="{Binding DeleteContactPersonCommand}" Content="Verwijderen" HorizontalAlignment="Left" Margin="466,437,0,0" VerticalAlignment="Top" Width="93" Height="38"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="30,118.203,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="120"/>
         <Label Content="Company" HorizontalAlignment="Left" Margin="257,207,0,0" VerticalAlignment="Top" Height="28" Width="70" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="368,209,0,0" TextWrapping="Wrap" Text="{Binding SelectedContactPersoon.Company}" VerticalAlignment="Top" Width="120"/>
         <Label Content="City&#xD;&#xA;" HorizontalAlignment="Left" Margin="257,253,0,0" VerticalAlignment="Top" Height="28" Width="70" FontSize="16"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="257,286,0,0" VerticalAlignment="Top" Height="28" Width="70" FontSize="16"/>
         <Label Content="Telefoon&#xD;&#xA;" HorizontalAlignment="Left" Margin="257,319,0,0" VerticalAlignment="Top" Height="28" Width="70" FontSize="16"/>
         <Label Content="GSM" HorizontalAlignment="Left" Margin="257,352,0,0" VerticalAlignment="Top" Height="28" Width="70" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="30,118.203,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="368,118,0,0" TextWrapping="Wrap" Text="{Binding SelectedContactPersoon.Name}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="368,209,0,0" TextWrapping="Wrap" Text="{Binding SelectedContactPersoon.Company}" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="368,253,0,0" TextWrapping="Wrap" Text="{Binding SelectedContactPersoon.City}" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="368,288,0,0" TextWrapping="Wrap" Text="{Binding SelectedContactPersoon.Email}" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="368,321,0,0" TextWrapping="Wrap" Text="{Binding SelectedContactPersoon.Phone}" VerticalAlignment="Top" Width="120"/>

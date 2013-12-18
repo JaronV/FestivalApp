@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:FestivalApp.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="1024">
     <UserControl.Resources>
@@ -29,6 +30,9 @@
         </DataTemplate>
     </UserControl.Resources>
     <Grid>
+        <Grid.DataContext>
+            <vm:InstellingenVM/>
+        </Grid.DataContext>
         <Label Content="Instellingen" HorizontalAlignment="Left" Margin="26,25.5,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label Content="Type personen" HorizontalAlignment="Left" Margin="26,88.5,0,0" VerticalAlignment="Top" FontSize="18.667"/>
         <Label Content="Genres&#xD;&#xA;" HorizontalAlignment="Left" Margin="26,363,0,0" VerticalAlignment="Top" FontSize="18.667" Height="35.657" Width="131.637"/>
@@ -42,27 +46,18 @@
         <Button Command="{Binding AddGenreCommand}" Content="New" HorizontalAlignment="Left" Margin="240,449.5,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Command="{Binding DeleteGenreCommand}" Content="Verwijderen" HorizontalAlignment="Left" Margin="240,526,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Command="{Binding SaveGenreCommand}" Content="Opslaan" HorizontalAlignment="Left" Margin="240,487,0,0" VerticalAlignment="Top" Width="75"/>
-        <Label Content="Tickettype&#xA;" HorizontalAlignment="Left" Margin="383,79.5,0,0" VerticalAlignment="Top" FontSize="18.667" Height="35.657" Width="131.637"/>
-        <ListBox ItemsSource="{Binding Tickettypes}" ItemTemplate="{StaticResource TicketTypeTemplate}" SelectedItem="{Binding SelectedTicketType}"  HorizontalAlignment="Left" Height="215" Margin="383,120.157,0,0" VerticalAlignment="Top" Width="183"/>
-
-        <Button x:Name="Tickettype_toevoeg" Command="{Binding AddTickettypeCommand }"  Content="New&#xD;&#xA;" HorizontalAlignment="Left" Margin="597,242,0,0" VerticalAlignment="Top" Width="75" Height="20"/>
-        <Button x:Name="Tickettype_verwijder" Command="{Binding DeleteTickettypeCommand}" Content="Verwijderen" HorizontalAlignment="Left" Margin="597,302,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="Tickettype_bewerk" Command="{Binding SaveTickettypeCommand}" Content="Opslaan" HorizontalAlignment="Left" Margin="597,274,0,0" VerticalAlignment="Top" Width="75" />
-        <Label Content="Podia&#xA;" HorizontalAlignment="Left" Margin="383,363,0,0" VerticalAlignment="Top" FontSize="18.667" Height="35.657" Width="131.637"/>
-        <ListBox ItemsSource="{Binding Podiums}" ItemTemplate="{StaticResource StageTemplate}" SelectedItem="{Binding SelectedStage}" HorizontalAlignment="Left" Height="215" Margin="383,403.657,0,0" VerticalAlignment="Top" Width="183"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="597,411.83,0,0" TextWrapping="Wrap" Text="{Binding SelectedStage.Name}" VerticalAlignment="Top" Width="120"/>
-        <Button Command="{Binding AddStageCommand}" Content="New" HorizontalAlignment="Left" Margin="597,449.5,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Command="{Binding DeleteStageCommand}" Content="Verwijderen" HorizontalAlignment="Left" Margin="597,526,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Command="{Binding SaveStageCommand}" Content="Opslaan" HorizontalAlignment="Left" Margin="597,487,0,0" VerticalAlignment="Top" Width="75"/>
-        <Label Content="Festival Data&#xA;" HorizontalAlignment="Left" Margin="741.5,79.5,0,0" VerticalAlignment="Top" FontSize="18.667" Height="35.657" Width="131.637"/>
-        <Label Content="Van:" HorizontalAlignment="Left" Margin="755,128.33,0,0" VerticalAlignment="Top"/>
-        <Label Content="Tot:" HorizontalAlignment="Left" Margin="755,166,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="819,131.29,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="54.137"/>
-        <TextBox HorizontalAlignment="Left" Height="25.96" Margin="819,166,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="54.137"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="755,203.5,0,0" TextWrapping="Wrap" Text="FestivalNaam" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Bevestig" HorizontalAlignment="Left" Margin="755,242.5,0,0" VerticalAlignment="Top" Width="120" Height="39.96"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="597,163,0,0" TextWrapping="Wrap" Text="{Binding SelectedTicketType.Price,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="22" Margin="597,199,0,0" TextWrapping="Wrap" Text="{Binding SelectedTicketType.AvailableTickets,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="597,128,0,0" TextWrapping="Wrap" Text="{Binding SelectedTicketType.Name,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" />
+        <Label Content="Podia&#xA;" HorizontalAlignment="Left" Margin="435,363,0,0" VerticalAlignment="Top" FontSize="18.667" Height="36" Width="132"/>
+        <ListBox ItemsSource="{Binding Podiums}" ItemTemplate="{StaticResource StageTemplate}" SelectedItem="{Binding SelectedStage}" HorizontalAlignment="Left" Height="215" Margin="435,404,0,0" VerticalAlignment="Top" Width="184"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="649,412,0,0" TextWrapping="Wrap" Text="{Binding SelectedStage.Name}" VerticalAlignment="Top" Width="120"/>
+        <Button Command="{Binding AddStageCommand}" Content="New" HorizontalAlignment="Left" Margin="649,450,0,0" VerticalAlignment="Top" Width="76"/>
+        <Button Command="{Binding DeleteStageCommand}" Content="Verwijderen" HorizontalAlignment="Left" Margin="649,526,0,0" VerticalAlignment="Top" Width="76"/>
+        <Button Command="{Binding SaveStageCommand}" Content="Opslaan" HorizontalAlignment="Left" Margin="649,487,0,0" VerticalAlignment="Top" Width="76"/>
+        <Label Content="Festival Data&#xA;" HorizontalAlignment="Left" Margin="432,110,0,0" VerticalAlignment="Top" FontSize="18.667" Height="36" Width="132"/>
+        <Label Content="Van:" HorizontalAlignment="Left" Margin="446,160,0,0" VerticalAlignment="Top"/>
+        <Label Content="Tot:" HorizontalAlignment="Left" Margin="446,198,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="446,236,0,0" TextWrapping="Wrap" Text="FestivalNaam" VerticalAlignment="Top" Width="120"/>
+        <Button Command="{Binding AddFestivalCommand }" Content="Bevestig" HorizontalAlignment="Left" Margin="446,274,0,0" VerticalAlignment="Top" Width="120" Height="40"/>
+        <DatePicker SelectedDate="{Binding BeginDatum }" x:Name="VanDatum" HorizontalAlignment="Left" Margin="517,160,0,0" VerticalAlignment="Top" />
+        <DatePicker SelectedDate="{Binding EindDatum}" x:Name="TotDatum" HorizontalAlignment="Left" Margin="517,194,0,0" VerticalAlignment="Top" />
     </Grid>
 </UserControl>

@@ -1,5 +1,4 @@
 ﻿using System;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
@@ -26,7 +25,7 @@ namespace FestivalApp.Model
         public static ObservableCollection<Contactperson> GetContactPersonType()
         {
 
-
+            Soorten = new ObservableCollection<Contactperson>();
             string sql = "SELECT * FROM ContactPerson";
 
             DbDataReader reader = Database.GetData(sql);
@@ -49,7 +48,8 @@ namespace FestivalApp.Model
             type.Name = rij["Name"].ToString();
             type.Company = rij["Company"].ToString();
             type.City = rij["City"].ToString();
-            type.JobRole = (ContactpersonType)rij["JobRole"];
+
+            type.JobRole = ContactpersonType.GetContactPersonTypeByID(Convert.ToInt32( rij["JobRole"].ToString()));
             type.Phone = rij["Phone"].ToString();
             type.Cellphone = rij["Cellphone"].ToString();
             type.Email = rij["Email"].ToString();
@@ -63,13 +63,13 @@ namespace FestivalApp.Model
 
                 DbParameter paramName = Database.AddParameter("@Name", SelectedContactPerson.Name);
                 DbParameter paramCompany = Database.AddParameter("@Company", SelectedContactPerson.Company);
-                DbParameter paramCity = Database.AddParameter("@City", SelectedContactPerson.Name);
-                DbParameter paramJobrole = Database.AddParameter("@JobRole", SelectedContactPerson.Name);
-                DbParameter paramPhone = Database.AddParameter("@Phone", SelectedContactPerson.Name);
-                DbParameter paramCellphone = Database.AddParameter("@Cellphone", SelectedContactPerson.Name);
-                DbParameter paramEmail = Database.AddParameter("@Email", SelectedContactPerson.Name);
+                DbParameter paramCity = Database.AddParameter("@City", SelectedContactPerson.City);
+                DbParameter paramJobrole = Database.AddParameter("@JobRole", SelectedContactPerson.JobRole.Name);
+                DbParameter paramPhone = Database.AddParameter("@Phone", SelectedContactPerson.Phone);
+                DbParameter paramCellphone = Database.AddParameter("@Cellphone", SelectedContactPerson.Cellphone);
+                DbParameter paramEmail = Database.AddParameter("@Email", SelectedContactPerson.Email);
 
-                Database.ModifyData("INSERT INTO ContactPerson (Name,Company,JobRole,City,Email,Phone,Cellphone) values (@Name,@Company,@City,@JobRole,@Phone,@Cellphone,@Email)", paramName, paramCompany, paramCity, paramJobrole, paramPhone, paramCellphone, paramEmail);
+                Database.ModifyData("INSERT INTO ContactPerson (Name,Company,JobRole,City,Email,Phone,Cellphone) values (@Name,@Company,@JobRole,@City,@Email,@Phone,@Cellphone)", paramName, paramCompany, paramCity, paramJobrole, paramPhone, paramCellphone, paramEmail);
             }
             catch (Exception e)
             {
@@ -92,7 +92,10 @@ namespace FestivalApp.Model
                 throw e;
             }
         }
-
+        public override string ToString()
+        {
+            return Name;
+        }
        
 
 

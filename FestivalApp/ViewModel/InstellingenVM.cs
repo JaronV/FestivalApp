@@ -15,7 +15,7 @@ namespace FestivalApp.ViewModel
 
         public InstellingenVM()
         {
-            _tickettypes = TicketType.GetTicketType();
+            
             _contactPersonTypes = ContactpersonType.GetContactPersonType();
             _genres = Genre.GetGenres();
             _podiums = Stage.GetStages();
@@ -29,20 +29,32 @@ namespace FestivalApp.ViewModel
                 return "Instellingen"; //hier geven we de exacte naam van de usercontrol terug
             }
         }
-        private ObservableCollection<TicketType>_tickettypes = new ObservableCollection<TicketType>();
+        
         private ObservableCollection<ContactpersonType> _contactPersonTypes = new ObservableCollection<ContactpersonType>();
         private ObservableCollection<Genre> _genres = new ObservableCollection<Genre>();
         private ObservableCollection<Stage> _podiums = new ObservableCollection<Stage>();
        
         #region "selected velden listbox"
+        private DateTime beginDatum =  DateTime.Today;
 
-
-        private TicketType _selectedType;
-
-        public TicketType SelectedTicketType
+        public DateTime BeginDatum
         {
-            get { return _selectedType; }
-            set { _selectedType = value; OnPropertyChanged("SelectedTicketType"); }
+            get { return beginDatum; }
+            set { beginDatum = value ; OnPropertyChanged("BeginDatum"); }
+        }
+        private DateTime eindDatum = DateTime.Today;
+      //  private String eindDatum = DateTime.Today.ToShortDateString();
+        public DateTime EindDatum
+        {
+            get { return eindDatum;  }
+            set { eindDatum = value; OnPropertyChanged("EindDatum"); }
+        }
+        private String festivalNaam;
+
+        public String FestivalNaam
+        {
+            get { return festivalNaam; }
+            set { festivalNaam = value; OnPropertyChanged("FestivalNaam"); }
         }
 
         private ContactpersonType _selectedContactPerson;
@@ -72,11 +84,7 @@ namespace FestivalApp.ViewModel
         #endregion
 
         #region "fields"
-        public ObservableCollection<TicketType> Tickettypes
-        {
-          get { return _tickettypes; }
-            set { _tickettypes = value; OnPropertyChanged("Tickettypes"); }
-        }
+        
 
         public ObservableCollection<ContactpersonType> ContactPersonTypes
         {
@@ -98,27 +106,7 @@ namespace FestivalApp.ViewModel
 
         #region commands
         //Tickettype commands
-        public ICommand AddTickettypeCommand
-        {
-            get
-            {
-                return new RelayCommand(AddTickettype);
-            }
-        }
-        public ICommand SaveTickettypeCommand
-        {
-            get
-            {
-                return new RelayCommand(SaveTickettype);
-            }
-        }
-        public ICommand DeleteTickettypeCommand
-        {
-            get
-            {
-                return new RelayCommand(DeleteTickettype);
-            }
-        }
+        
 
         //GenreCommands
         public ICommand AddGenreCommand
@@ -197,10 +185,43 @@ namespace FestivalApp.ViewModel
                 return new RelayCommand(DeleteContactPerson);
             }
         }
+        public ICommand AddFestivalCommand
+        {
+            get
+            {
+                return new RelayCommand(AddFestival);
+            }
+        }
+        public ICommand DeleteFestivalCommand
+        {
+            get
+            {
+                return new RelayCommand(DeleteFestival);
+            }
+        }
 
-        
 
         #endregion
+
+        private void AddFestival()
+        {
+            //DateTime.Today.ToString("yyyy-MM-dd")
+            string begin = BeginDatum.ToString("yyyy-dd-MM");
+            string einde = EindDatum.ToString("yyyy-dd-MM");
+
+            Festival festi = new Festival();
+            festi.StartDate = begin;
+            festi.EndDate = einde;
+            festi.Naam = FestivalNaam;
+            Festival.AddType(festi);
+            
+        }
+
+        private void DeleteFestival()
+        {
+            
+        }
+        
         //Stage methods
 
         public void AddStage()
@@ -220,24 +241,7 @@ namespace FestivalApp.ViewModel
             Podiums.Remove(SelectedStage);
         }
 
-        //Tickettype methods
-        public void AddTickettype()
-        {
-            TicketType newType = new TicketType();
-            Tickettypes.Add(newType);
-            
-            SelectedTicketType = newType;
-          
-        }
-        public void SaveTickettype()
-        {
-            TicketType.AddType(SelectedTicketType);      
-        }
-        public void DeleteTickettype()
-        {          
-            TicketType.DeleteType(SelectedTicketType);
-            Tickettypes.Remove(SelectedTicketType);
-        }
+       
 
         //Genre methods
         private void AddGenre()
@@ -276,5 +280,7 @@ namespace FestivalApp.ViewModel
             ContactpersonType.DeleteType(SelectedContactPerson);
             ContactPersonTypes.Remove(SelectedContactPerson);
         }
+
+        
     }
 }

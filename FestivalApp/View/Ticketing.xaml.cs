@@ -12,28 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using GalaSoft.MvvmLight.Command;
-using System.Runtime.InteropServices;
 
 namespace FestivalApp.View
 {
     /// <summary>
-    /// Interaction logic for Instellingen.xaml
+    /// Interaction logic for Ticket.xaml
     /// </summary>
-    public partial class Instellingen : UserControl
+    public partial class Ticket : UserControl
     {
-        public Instellingen()
+        public Ticket()
         {
             InitializeComponent();
-
-         
         }
-        
-
-
-       
-
-
-        
     }
 }
