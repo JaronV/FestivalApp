@@ -34,3 +34,6 @@ C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\F
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalApp\obj\Debug\View\Ticketing.baml
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalApp\obj\Debug\View\Ticketing.g.cs
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalApp\obj\Debug\Dictionary2.baml
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalApp\bin\Debug\FestivalLib.exe
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalApp\bin\Debug\FestivalLib.pdb
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalApp\bin\Debug\Xceed.Wpf.Toolkit.dll

@@ -4,25 +4,76 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm="clr-namespace:FestivalApp.ViewModel"
-             mc:Ignorable="d" 
-             d:DesignHeight="768" d:DesignWidth="1024">
-    <Grid>
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" d:DesignWidth="1024" Height="772.5">
+    <UserControl.Resources>
+        <!--stage template-->
+        <DataTemplate x:Key="scStageTemplate">
+            <WrapPanel Margin="10">
+                <TextBlock Text="{Binding Name}" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <Button Content="Delete" Command="{Binding DataContext.DeleteStageCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding ID}" />
+                <ItemsControl Margin="20,0,0,0" ItemTemplate="{DynamicResource scBandTemplate}" ItemsSource="{Binding Bands}" ItemsPanel="{DynamicResource ItemSPanel}">
+                </ItemsControl>
+            </WrapPanel>
+        </DataTemplate>
+        <ItemsPanelTemplate x:Key="ItemSPanel">
+            <WrapPanel>
+
+            </WrapPanel>
+        </ItemsPanelTemplate>
+        <!--band template-->
+        <DataTemplate x:Key="scBandTemplate">
+            <Border BorderBrush="#FF007BB2" BorderThickness="1" Margin="2">
+                <StackPanel Background="#FF19B8FF" Width="{Binding TimeSpan}">
+                    <Button Style="{DynamicResource DeleteContact}" HorizontalAlignment="Right" Content="X" Command="{Binding DataContext.DeleteBandFromLineUpCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding ID}"/>
+                    <TextBlock Text="{Binding band.Name}" Style="{DynamicResource LineUpTxb}"/>
+                    <TextBlock Style="{DynamicResource LineUpTxb}">
+                        <Run Text="{Binding From, StringFormat=HH:mm}"/>
+                        <Run Text="-"/>
+                        <Run Text="{Binding Until, StringFormat=HH:mm}"/>
+                    </TextBlock>
+                    <TextBlock Text="{Binding Stage}"/>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+
+    </UserControl.Resources>
+    <Grid Margin="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="68"></RowDefinition>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="251*"/>
+        </Grid.ColumnDefinitions>
         <Grid.DataContext>
             <vm:MainPageVM/>
         </Grid.DataContext>
-        <Label x:Name="lblLineUp" Content="Line Up" HorizontalAlignment="Left" Margin="10,25.04,0,0" VerticalAlignment="Top" Height="46.96" Width="163.207" FontSize="24"/>
-    
-        <ListView HorizontalAlignment="Left" Height="184" Margin="26,92,0,0" VerticalAlignment="Top" Width="894">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Width="120" Header="Band"/>
-                    <GridViewColumn Width="120" Header="Stage"/>
-                    <GridViewColumn Width="120" Header="Uur"/>
-                </GridView>
-            </ListView.View>
-            <ListViewItem Content="1/2/3" Margin="0"/>
-            <ListViewItem Content="ListViewItem" Margin="0"/>
-        </ListView>
-       
+
+
+
+        <ItemsControl ItemsSource="{Binding StagesPerDag}" ItemTemplate="{StaticResource scStageTemplate}" Margin="11,10,0,415" Grid.Row="1" Grid.Column="1"/>
+        <Label  x:Name="lblLineUp" Content="Line Up" HorizontalAlignment="Left" Margin="1,25,0,0" VerticalAlignment="Top" Height="47" Width="163" FontSize="24" Grid.RowSpan="2" Grid.Column="1"/>
+        <Label Content="Line Up configuratie" HorizontalAlignment="Left" Margin="1,284,0,0" VerticalAlignment="Top" Height="34" Width="201" FontSize="22" Grid.Row="1" Grid.Column="1"/>
+        <Label Content="Band" HorizontalAlignment="Left" Margin="0,354,0,0" VerticalAlignment="Top" Height="28" Width="114" Grid.Row="1" Grid.Column="1"/>
+        <Label Content="Podium" HorizontalAlignment="Left" Height="40" Margin="0,387,0,0" VerticalAlignment="Top" Width="128" Grid.Row="1" Grid.Column="1"/>
+        <Label Content="Dag" HorizontalAlignment="Left" Height="22" Margin="0,427,0,0" VerticalAlignment="Top" Width="84" Grid.Row="1" Grid.Column="1"/>
+        <Label Content="Begin Uur" HorizontalAlignment="Left" Height="31" Margin="0,474,0,0" VerticalAlignment="Top" Width="110" Grid.Row="1" Grid.Column="1"/>
+        <Label Content="Eind uur" HorizontalAlignment="Left" Margin="0,525,0,0" VerticalAlignment="Top" Height="43" Width="104" Grid.Row="1" Grid.Column="1"/>
+        <ComboBox ItemsSource="{Binding Bands}" DisplayMemberPath="Name" SelectedItem="{Binding LineUp.band}" SelectedIndex="0" HorizontalAlignment="Left" Margin="89,352,0,0" VerticalAlignment="Top" Width="120" Height="21" Grid.Row="1" Grid.Column="1"/>
+        <ComboBox ItemsSource="{Binding Podiums}" DisplayMemberPath="Name" SelectedItem="{Binding LineUp.stage}" SelectedIndex="0" HorizontalAlignment="Left" Margin="89,387,0,0" VerticalAlignment="Top" Width="120" Height="20" Grid.Row="1" Grid.Column="1"/>
+        <ComboBox ItemsSource="{Binding UniekeDagen}" DisplayMemberPath="Date" ItemStringFormat="dd/MM/yyyy" SelectedItem="{Binding LineUp.Date}" SelectedIndex="0" HorizontalAlignment="Left" Margin="89,427,0,0" VerticalAlignment="Top" Width="120" Height="22" Grid.Row="1" Grid.Column="1"/>
+        <TextBlock  Text="Selecteer een dag" Margin="257,356,647,317" Grid.Row="1" Grid.Column="1"/>
+        <ComboBox  ItemsSource="{Binding UniekeDagen}" ItemStringFormat="dd/MM/yyyy" DisplayMemberPath="Date" SelectedIndex="0" SelectedItem="{Binding SelectedDag}" Margin="382,354,514,317" Grid.Row="1" Grid.Column="1"/>
+        <xctk:DateTimeUpDown Format="Custom" FormatString="HH:mm" Value="{Binding LineUp.From, UpdateSourceTrigger=LostFocus}" Margin="89,472,768,199" Grid.Row="1" Grid.Column="1"/>
+        <xctk:DateTimeUpDown Format="Custom" FormatString="HH:mm" Value="{Binding LineUp.Until, UpdateSourceTrigger=LostFocus}" Margin="89,510,768,158" Grid.Row="1" Grid.Column="1" />
+
+        <Button Content="Opslaan" Command="{Binding SaveLineUpCommand}" Margin="89,570,683,87" Grid.Row="1" Grid.Column="1"/>
+        <!--<TextBox Text="{Binding LineUp.From}" HorizontalAlignment="Left" Height="23" Margin="257,482,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Grid.Row="1" Grid.Column="1"/>
+        <TextBox Text="{Binding LineUp.Until}" HorizontalAlignment="Left" Height="23" Margin="257,523,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Grid.Row="1" Grid.Column="1"/>-->
+
+
+
     </Grid>
 </UserControl>

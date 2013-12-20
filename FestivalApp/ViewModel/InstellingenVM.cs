@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FestivalApp.Model;
+using FestivalLib.Model;
 using System.Collections.ObjectModel;
 using GalaSoft.MvvmLight.Command;
 using System.Windows.Input;
@@ -19,7 +19,7 @@ namespace FestivalApp.ViewModel
             _contactPersonTypes = ContactpersonType.GetContactPersonType();
             _genres = Genre.GetGenres();
             _podiums = Stage.GetStages();
-
+          
             
         }
         public string Name
@@ -205,13 +205,14 @@ namespace FestivalApp.ViewModel
 
         private void AddFestival()
         {
+          
             //DateTime.Today.ToString("yyyy-MM-dd")
             string begin = BeginDatum.ToString("yyyy-dd-MM");
             string einde = EindDatum.ToString("yyyy-dd-MM");
 
             Festival festi = new Festival();
-            festi.StartDate = begin;
-            festi.EndDate = einde;
+            festi.StartDate = BeginDatum;
+            festi.EndDate = EindDatum;
             festi.Naam = FestivalNaam;
             Festival.AddType(festi);
             

@@ -1,4 +1,4 @@
-﻿using FestivalApp.Model;
+﻿using FestivalLib.Model;
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;

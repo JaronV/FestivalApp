@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using FestivalApp.View;
 using System.Collections.ObjectModel;
-using FestivalApp.Model;
+using FestivalLib.Model;
 using GalaSoft.MvvmLight.Command;
 using System.Windows.Input;
+
 namespace FestivalApp.ViewModel
 {
     class TicketVM : ObservableObject, IPage
@@ -15,13 +16,14 @@ namespace FestivalApp.ViewModel
         public TicketVM()
         {
             _tickettypes = TicketType.GetTicketType();
-           _tickets = FestivalApp.Model.Ticket.GetTickets();
-           if (Festival.DatumsAanwezig())
-           {
-               Festival Festi = Festival.GetData();
-               beginDatum = Festi.StartDate;
-               eindeDatum = Festi.EndDate;
-           }
+           _tickets = FestivalLib.Model.Ticket.GetTickets();
+           _uniekeDagen = Festival.aantalDagen();
+           //if (Festival.DatumsAanwezig())
+           //{
+           //    Festival Festi = Festival.GetData();
+           //    beginDatum = Festi.StartDate;
+           //    eindeDatum = Festi.EndDate;
+           //}
         }
         public string Name
         {
@@ -93,30 +95,24 @@ namespace FestivalApp.ViewModel
         #endregion
 
         #region Ticketgedeelte
-        private String beginDatum;
+        private ObservableCollection<DateTime> _uniekeDagen;
 
-        public String BeginDatum
+        public ObservableCollection<DateTime> UniekeDagen
         {
-            get { return beginDatum; }
-            set { beginDatum = value; OnPropertyChanged("BeginDatum"); }
+            get { return _uniekeDagen; }
+            set { _uniekeDagen = value; OnPropertyChanged("UniekeDagen"); }
         }
-        private String eindeDatum;
+        
+        private ObservableCollection<FestivalLib.Model.Ticket> _tickets = new ObservableCollection<FestivalLib.Model.Ticket>();
 
-        public String EindeDatum
-        {
-            get { return eindeDatum; }
-            set { eindeDatum = value; OnPropertyChanged("EindeDatum"); }
-        }
-        private ObservableCollection<FestivalApp.Model.Ticket> _tickets = new ObservableCollection<Model.Ticket>();
-
-        public ObservableCollection<FestivalApp.Model.Ticket> Tickets
+        public ObservableCollection<FestivalLib.Model.Ticket> Tickets
         {
             get { return _tickets; }
             set { _tickets = value; OnPropertyChanged("Tickets"); }
         }
-        private FestivalApp.Model.Ticket _selectedTicket;
+        private FestivalLib.Model.Ticket _selectedTicket;
 
-        public FestivalApp.Model.Ticket SelectedTicket
+        public FestivalLib.Model.Ticket SelectedTicket
         {
             get { return _selectedTicket; }
             set { _selectedTicket = value; OnPropertyChanged("SelectedTicket"); }
@@ -148,7 +144,7 @@ namespace FestivalApp.ViewModel
 
         private void AddTicket()
         {
-            FestivalApp.Model.Ticket nieuw = new FestivalApp.Model.Ticket();
+            FestivalLib.Model.Ticket nieuw = new FestivalLib.Model.Ticket();
             Tickets.Add(nieuw);
 
             SelectedTicket = nieuw;
@@ -159,13 +155,13 @@ namespace FestivalApp.ViewModel
         {
             if (SaveValidBand())
             {
-                FestivalApp.Model.Ticket.AddType(SelectedTicket);
+                FestivalLib.Model.Ticket.AddType(SelectedTicket);
             }
         }
 
         private void DeleteTicket()
         {
-            FestivalApp.Model.Ticket.DeleteType(SelectedTicket);
+            FestivalLib.Model.Ticket.DeleteType(SelectedTicket);
             Tickets.Remove(SelectedTicket);
         }
 

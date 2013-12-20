@@ -22,6 +22,19 @@
         <Grid.DataContext>
             <vm:BandsVM/>
         </Grid.DataContext>
+        <Border Height="285" VerticalAlignment="Top" Margin="686,86,10,0" BorderBrush="Orange" BorderThickness="3">
+            <Image Source="{Binding SelectedBand.Picture}" AllowDrop="True" Stretch="UniformToFill" Margin="3,6" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+
+            </Image>
+        </Border>
         <!--ItemsSource="{Binding ContactPersonTypes}" ItemTemplate="{StaticResource ContactPersonTypeTemplate}" SelectedItem="{Binding SelectedContactPerson}"-->
         <ListBox ItemsSource="{Binding Bands}" ItemTemplate="{StaticResource BandTemplate}" SelectedItem="{Binding SelectedBand}" HorizontalAlignment="Left" Height="261" Margin="27,138,0,0" VerticalAlignment="Top" Width="210"/>
         <Label x:Name="lblBands" Content="Bands&#xD;&#xA;" HorizontalAlignment="Left" Margin="27,86,0,0" VerticalAlignment="Top" Height="47" Width="164" FontSize="24"/>
@@ -35,7 +48,7 @@
         <Button Command="{Binding DeleteBandCommand}" x:Name="btnVerwijder" Content="Verwijderen" HorizontalAlignment="Left" Margin="593,514,0,0" VerticalAlignment="Top" Width="76" Height="38"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="383,142,0,0" TextWrapping="Wrap" Text="{Binding SelectedBand.Name,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="53" Margin="383,184,0,0" TextWrapping="Wrap" Text="{Binding SelectedBand.Description,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="214"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="383,253,0,0" TextWrapping="Wrap" Text="{Binding SelectedBand.Picture,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+      
         <TextBox HorizontalAlignment="Left" Height="23" Margin="383,284,0,0" TextWrapping="Wrap" Text="{Binding SelectedBand.Facebook,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="383,312,0,0" TextWrapping="Wrap" Text="{Binding SelectedBand.Twitter,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <ListBox ItemsSource="{Binding Huidigegenres,UpdateSourceTrigger=PropertyChanged}" ItemTemplate="{StaticResource GenreTemplate}" SelectedItem="{Binding SelectedHuidigeGenre,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="114" Margin="387,379,0,0" VerticalAlignment="Top" Width="145"/>
@@ -45,5 +58,7 @@
         <Label Content="Alle" HorizontalAlignment="Left" Margin="577,350,0,0" VerticalAlignment="Top" Height="24" Width="66"/>
         <Button Command="{Binding VerwijderGenreCommand}" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="537,439,0,0" VerticalAlignment="Top" Width="31" Height="19" RenderTransformOrigin="0.484,0.526" />
         <Button Command="{Binding VoegGenreToeCommand}" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="537,404,0,0" VerticalAlignment="Top" Width="31" Height="19" />
+        <Button Command="{Binding OpenImageCommand}" Content="Selecteer afbeelding" HorizontalAlignment="Left" Margin="387,248,0,0" VerticalAlignment="Top" Width="126" Height="25" />
+       
     </Grid>
 </UserControl>

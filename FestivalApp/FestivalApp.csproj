@@ -67,22 +67,15 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\..\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\Band.cs" />
-    <Compile Include="Model\Contactperson.cs" />
-    <Compile Include="Model\ContactpersonType.cs" />
-    <Compile Include="Model\Database.cs" />
-    <Compile Include="Model\Festival.cs" />
-    <Compile Include="Model\Genre.cs" />
-    <Compile Include="Model\LineUp.cs" />
-    <Compile Include="Model\Stage.cs" />
-    <Compile Include="Model\Ticket.cs" />
-    <Compile Include="Model\TicketType.cs" />
     <Compile Include="ViewModel\ApplicationVM.cs" />
     <Compile Include="ViewModel\BandsVM.cs" />
     <Compile Include="ViewModel\ContactpersoonVM.cs" />
@@ -176,7 +169,12 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\FestivalLib\FestivalLib.csproj">
+      <Project>{1b41a12a-03ba-40f2-aa64-1bf8df73ae2d}</Project>
+      <Name>FestivalLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

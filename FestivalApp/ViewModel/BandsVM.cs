@@ -1,5 +1,4 @@
-﻿using FestivalApp.Model;
-using GalaSoft.MvvmLight.Command;
+﻿using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,6 +8,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
 using FestivalApp.View;
+using FestivalLib.Model;
+using System.IO;
+using System.Windows;
+using Microsoft.Win32;
 
 namespace FestivalApp.ViewModel
 {
@@ -114,7 +117,25 @@ namespace FestivalApp.ViewModel
                 return new RelayCommand(VerwijderGenre);
             }
         }
+        public ICommand OpenImageCommand
+        {
+            get { return new RelayCommand(setImage); }
+        }
 
+        private void setImage()
+        {
+            Microsoft.Win32.OpenFileDialog ofd = new Microsoft.Win32.OpenFileDialog();
+            ofd.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+          
+            if (ofd.ShowDialog() == true)
+            {
+                FileStream fs = File.OpenRead(ofd.FileName);
+                byte[] bytes = new byte[fs.Length];
+                fs.Read(bytes, 0, Convert.ToInt32(fs.Length));
+                SelectedBand.Picture = bytes;
+                OnPropertyChanged("SelectedBand");
+            }
+        }
    
 
         private void AddBand()
