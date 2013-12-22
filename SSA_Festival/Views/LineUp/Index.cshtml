@@ -1,0 +1,55 @@
+﻿@model SSA_Festival.Models.LineUpVM
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm("Filter", "LineUp", FormMethod.Post))
+{
+    @Html.DropDownList("SelectedDag", (SelectList)Model.lstDagen)
+    @Html.DropDownList("SelectedPod", (SelectList)Model.lstPodia)
+
+    
+    <input type="submit" value="Toon" />
+    <table>
+    <tr>
+        <th>
+            Dag
+        </th>
+        <th>
+            Begin
+        </th>
+        <th>
+            Eind
+        </th>
+        <th>
+            Band
+        </th>
+    </tr>
+      
+    @foreach (var item in Model.LineUps) {
+    <tr>
+       @* <td>
+            @Html.DisplayFor(modelItem => item.Date.Day)/@Html.DisplayFor(modelItem => item.Date.Month)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.From):@Html.DisplayFor(modelItem => item.From)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Until):@Html.DisplayFor(modelItem =>item.Until)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.band.Name)
+        </td>
+
+        <td>
+            @Html.ActionLink("Details", "BandDetails", new { bandID=item.band.ID })
+        </td>*@
+    </tr>
+}
+
+</table>
+
+}

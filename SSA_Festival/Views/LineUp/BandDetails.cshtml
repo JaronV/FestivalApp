@@ -1,0 +1,44 @@
+﻿@model FestivalLib.Model.Band
+
+@{
+    ViewBag.Title = "BandDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>BandDetails</h2>
+
+<fieldset>
+    <legend>Band</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Twitter)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Twitter)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Facebook)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Facebook)
+    </div>
+</fieldset>
+<p>
+   
+    @Html.ActionLink("Back to List", "Index")
+</p>
