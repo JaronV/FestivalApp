@@ -6,19 +6,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.Common;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace FestivalLib.Model
 {
-   public class TicketType
+    public class TicketType : IDataErrorInfo
     {
         public int ID { get; set; }
+
+        [Required(ErrorMessage = "De naam is verplicht")]
         public String Name { get; set; }
+        [Required(ErrorMessage = "De Prijs is verplicht")]
         public double Price { get; set; }
+        [Required(ErrorMessage = "Aantal is verplicht")]
         public int AvailableTickets { get; set; }
+
+        [Required(ErrorMessage = "Datum is verplicht")]
         public DateTime Datum { get; set; }
         public  static ObservableCollection<TicketType> Soorten = new ObservableCollection<TicketType>();
-
+        public string kortedatum { get; set; }
         public static void DeleteType(TicketType type)
         {
             try
@@ -83,6 +91,7 @@ namespace FestivalLib.Model
             type.Name = rij["Name"].ToString();
             type.Price = Convert.ToInt32(rij["Price"].ToString());
             type.Datum = Convert.ToDateTime(rij["Datum"]);
+            type.kortedatum = Convert.ToDateTime(rij["Datum"]).ToShortDateString();
             return type;
 
         }
@@ -101,6 +110,58 @@ namespace FestivalLib.Model
             }
             return nieuw;
             
+        }
+        public static void EditTicket(TicketType tick)
+        {
+            try
+            {
+                //band gedeelte
+                string sql = "UPDATE TicketType SET Name=@name, Price=@price, AvailableTickets=@available, Datum=@datum WHERE ID=@ID;";
+
+                DbParameter par1 = Database.AddParameter("@name", tick.Name);
+                DbParameter par2 = Database.AddParameter("@price", tick.Price);
+                DbParameter par3 = Database.AddParameter("@datum", tick.Datum);
+                DbParameter par4 = Database.AddParameter("@available", tick.AvailableTickets);
+              
+                DbParameter parID = Database.AddParameter("@ID", Convert.ToInt16(tick.ID));
+
+                Database.ModifyData(sql, par1, par2, par3, par4, parID);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+        }
+
+        public bool IsValid()
+        {
+            return Validator.TryValidateObject(this, new ValidationContext(this, null, null), null, true);
+        }
+
+        public string Error
+        {
+            get { return null; }
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                try
+                {
+                    object value = this.GetType().GetProperty(columnName).GetValue(this);
+                    Validator.ValidateProperty(value, new ValidationContext(this, null, null) { MemberName = columnName });
+                }
+                catch (ValidationException ex)
+                {
+                    return ex.Message;
+                }
+                return String.Empty;
+            }
         }
     }
 }

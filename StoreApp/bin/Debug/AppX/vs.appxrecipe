@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>JARON-PC</Machine>
+    <WindowsUser>jerry_000</WindowsUser>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <RegisteredManifestChecksum>C604A452FF1BF89F5EC210C428CC11FE0C5C5FCB2DBC62C3448F7007D258EF18</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>37c213c5-6119-4520-b117-657f9d3029d3_1.0.0.0_neutral__fnfef4176kq7j</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>37c213c5-6119-4520-b117-657f9d3029d3_fnfef4176kq7j!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>37c213c5-6119-4520-b117-657f9d3029d3</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=jerry_000</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-12-30T14:03:09.789</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\StoreApp.exe">
+      <PackagePath>StoreApp.exe</PackagePath>
+      <Modified>2013-12-30T14:31:58.793</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\StoreApp.pdb">
+      <PackagePath>StoreApp.pdb</PackagePath>
+      <Modified>2013-12-30T14:31:58.769</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLibPortable\bin\Debug\FestivalLibPortable.dll">
+      <PackagePath>FestivalLibPortable.dll</PackagePath>
+      <Modified>2013-12-30T14:03:07.587</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLibPortable\bin\Debug\FestivalLibPortable.pdb">
+      <PackagePath>FestivalLibPortable.pdb</PackagePath>
+      <Modified>2013-12-30T14:03:07.564</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\Assets\Logo.png">
+      <PackagePath>Assets\Logo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2012-03-15T19:42:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\Assets\SmallLogo.png">
+      <PackagePath>Assets\SmallLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2012-03-15T19:42:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\Assets\SplashScreen.png">
+      <PackagePath>Assets\SplashScreen.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2012-03-15T19:42:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\Assets\StoreLogo.png">
+      <PackagePath>Assets\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2012-03-15T19:42:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\Assets\LightGray.png">
+      <PackagePath>Assets\LightGray.png</PackagePath>
+      <Modified>2011-12-12T21:08:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\Assets\MediumGray.png">
+      <PackagePath>Assets\MediumGray.png</PackagePath>
+      <Modified>2011-12-12T21:08:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\Assets\DarkGray.png">
+      <PackagePath>Assets\DarkGray.png</PackagePath>
+      <Modified>2011-12-12T21:08:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\App.xaml">
+      <PackagePath>App.xaml</PackagePath>
+      <Modified>2013-12-30T13:42:12.717</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\Common\StandardStyles.xaml">
+      <PackagePath>Common\StandardStyles.xaml</PackagePath>
+      <Modified>2012-06-26T15:19:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\GroupedItemsPage.xaml">
+      <PackagePath>GroupedItemsPage.xaml</PackagePath>
+      <Modified>2013-12-30T14:30:32.485</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\GroupDetailPage.xaml">
+      <PackagePath>GroupDetailPage.xaml</PackagePath>
+      <Modified>2013-12-30T13:42:12.774</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\ItemDetailPage.xaml">
+      <PackagePath>ItemDetailPage.xaml</PackagePath>
+      <Modified>2013-12-30T13:42:12.788</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2013-12-30T13:42:16.885</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

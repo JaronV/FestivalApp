@@ -1,0 +1,5 @@
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLibPortable\bin\Debug\FestivalLibPortable.dll
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLibPortable\bin\Debug\FestivalLibPortable.pdb
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLibPortable\obj\Debug\FestivalLibPortable.csprojResolveAssemblyReference.cache
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLibPortable\obj\Debug\FestivalLibPortable.dll
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLibPortable\obj\Debug\FestivalLibPortable.pdb

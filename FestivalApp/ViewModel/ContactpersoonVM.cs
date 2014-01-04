@@ -41,7 +41,13 @@ namespace FestivalApp.ViewModel
             get { return _contactPersons; }
             set { _contactPersons = value; OnPropertyChanged("ContactPersons"); }
         }
+        private ObservableCollection<Contactperson> _gefilterdeContacts;
 
+        public ObservableCollection<Contactperson> GefilterdeContacts
+        {
+            get { return _gefilterdeContacts; }
+            set { _gefilterdeContacts = value; OnPropertyChanged("GefilterdeContacts"); }
+        }    
         #endregion
 
         #region "selected veld"
@@ -81,7 +87,13 @@ namespace FestivalApp.ViewModel
                 return new RelayCommand(DeleteContactPerson);
             }
         }
-
+        public ICommand EditContactPersonCommand
+        {
+            get
+            {
+                return new RelayCommand(EditContact);
+            }
+        }
         
 
 
@@ -97,6 +109,7 @@ namespace FestivalApp.ViewModel
         private void SaveContactPerson()
         {
             Contactperson.AddType(SelectedContactPersoon);
+            ContactPersons = Contactperson.GetContactPersonType();
         }
 
         private void DeleteContactPerson()
@@ -104,6 +117,19 @@ namespace FestivalApp.ViewModel
             Contactperson.DeleteType(SelectedContactPersoon);
             ContactPersons.Remove(SelectedContactPersoon);
         }
+        private void EditContact()
+        {
+            Contactperson.EditCp(SelectedContactPersoon);
+        }
+        //public ICommand SearchCommand
+        //{
 
+        //    get { return new RelayCommand<string>(Search); }
+        //}
+        //private void Search(string str)
+        //{
+        //    Console.WriteLine(str);
+        //    GefilterdeContacts = Contactperson.GetContactsByString(Contacts, str);
+        //}
     }
 }

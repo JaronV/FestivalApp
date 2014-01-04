@@ -1,0 +1,13 @@
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLibPort\bin\Debug\FestivalLibPort.exe.config
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLibPort\bin\Debug\FestivalLibPort.exe
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLibPort\bin\Debug\FestivalLibPort.pdb
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLibPort\obj\Debug\FestivalLibPort.csprojResolveAssemblyReference.cache
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLibPort\obj\Debug\MainWindow.baml
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLibPort\obj\Debug\MainWindow.g.cs
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLibPort\obj\Debug\App.g.cs
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLibPort\obj\Debug\FestivalLibPort_MarkupCompile.cache
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLibPort\obj\Debug\FestivalLibPort.g.resources
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLibPort\obj\Debug\FestivalLibPort.Properties.Resources.resources
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLibPort\obj\Debug\FestivalLibPort.csproj.GenerateResource.Cache
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLibPort\obj\Debug\FestivalLibPort.exe
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLibPort\obj\Debug\FestivalLibPort.pdb

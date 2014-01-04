@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm="clr-namespace:FestivalApp.ViewModel"
+             xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="1024">
     <UserControl.Resources>
@@ -11,9 +12,36 @@
             <StackPanel>
                 <TextBlock Text="{Binding Name}"/>
             </StackPanel>
-        </DataTemplate> 
+        </DataTemplate>
+
+        <Style x:Key="TextboxError" TargetType="{x:Type TextBox}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="Foreground" Value="Red"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ComboBoxError" TargetType="{x:Type ComboBox}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="Foreground" Value="Red"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <ControlTemplate x:Key="ErrorTemplate">
+            <StackPanel>
+                <TextBlock Foreground="Red" Text="{Binding [0].ErrorContent}"/>
+                <Border BorderBrush="Red" BorderThickness="2">
+                    <AdornedElementPlaceholder/>
+                </Border>
+
+            </StackPanel>
+        </ControlTemplate>
+
     </UserControl.Resources>
-    
+
     <Grid>
         <Grid.DataContext>
             <vm:ContactpersoonVM />
@@ -25,10 +53,13 @@
         <ComboBox 
             DisplayMemberPath="Name" 
             ItemsSource="{Binding Jobroles}" 
-            SelectedItem="{Binding SelectedContactPersoon.JobRole}" 
+            SelectedItem="{Binding SelectedContactPersoon.JobRole,ValidatesOnDataErrors=True}" 
             SelectedValue="{Binding SelectedContactPersoon.JobRole.ID}" 
-            SelectedValuePath="ID" HorizontalAlignment="Left" Margin="368,161,0,0" VerticalAlignment="Top" Width="120"/>
-       
+            SelectedValuePath="ID" 
+            Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
+            Style="{StaticResource ComboBoxError}"
+            HorizontalAlignment="Left" Margin="368,161,0,0" VerticalAlignment="Top" Width="120"/>
+
         <Button Command="{Binding AddContactPersonCommand}" Content="New" HorizontalAlignment="Left" Margin="257,437,0,0" VerticalAlignment="Top" Width="93" Height="38"/>
         <Button Command="{Binding SaveContactPersonCommand}" Content="Opslaan" HorizontalAlignment="Left" Margin="363,437,0,0" VerticalAlignment="Top" Width="93" Height="38"/>
         <Button Command="{Binding DeleteContactPersonCommand}" Content="Verwijderen" HorizontalAlignment="Left" Margin="466,437,0,0" VerticalAlignment="Top" Width="93" Height="38"/>
@@ -37,12 +68,35 @@
         <Label Content="Email" HorizontalAlignment="Left" Margin="257,286,0,0" VerticalAlignment="Top" Height="28" Width="70" FontSize="16"/>
         <Label Content="Telefoon&#xD;&#xA;" HorizontalAlignment="Left" Margin="257,319,0,0" VerticalAlignment="Top" Height="28" Width="70" FontSize="16"/>
         <Label Content="GSM" HorizontalAlignment="Left" Margin="257,352,0,0" VerticalAlignment="Top" Height="28" Width="70" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="30,118.203,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="368,118,0,0" TextWrapping="Wrap" Text="{Binding SelectedContactPersoon.Name}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="368,209,0,0" TextWrapping="Wrap" Text="{Binding SelectedContactPersoon.Company}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="368,253,0,0" TextWrapping="Wrap" Text="{Binding SelectedContactPersoon.City}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="368,288,0,0" TextWrapping="Wrap" Text="{Binding SelectedContactPersoon.Email}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="368,321,0,0" TextWrapping="Wrap" Text="{Binding SelectedContactPersoon.Phone}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="368,354,0,0" TextWrapping="Wrap" Text="{Binding SelectedContactPersoon.Cellphone}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Height="23" Margin="30,118,0,0" TextWrapping="Wrap" Text="zoeken" VerticalAlignment="Top" Width="108"/>
+        
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="368,118,0,0" TextWrapping="Wrap" 
+                 Text="{Binding SelectedContactPersoon.Name, ValidatesOnDataErrors=True}"
+                   Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
+                 Style="{StaticResource TextboxError}"
+                 VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="368,209,0,0" TextWrapping="Wrap"
+                 Text="{Binding SelectedContactPersoon.Company, ValidatesOnDataErrors=True}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
+                 Style="{StaticResource TextboxError}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="368,253,0,0" TextWrapping="Wrap"
+                 Text="{Binding SelectedContactPersoon.City, ValidatesOnDataErrors=True}"       
+                 Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
+                 Style="{StaticResource TextboxError}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="368,288,0,0" TextWrapping="Wrap"
+                 Text="{Binding SelectedContactPersoon.Email, ValidatesOnDataErrors=True}" 
+                 Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
+                 Style="{StaticResource TextboxError}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="368,321,0,0" TextWrapping="Wrap"
+                 Text="{Binding SelectedContactPersoon.Phone, ValidatesOnDataErrors=True}"        
+                 Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
+                 Style="{StaticResource TextboxError}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="368,354,0,0" TextWrapping="Wrap"
+                 Text="{Binding SelectedContactPersoon.Cellphone, ValidatesOnDataErrors=True}" 
+                 Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
+                 Style="{StaticResource TextboxError}" VerticalAlignment="Top" Width="120"/>
+        
+        <Button Command="{Binding SearchCommand}" CommandParameter="{Binding ElementName=txtSearch, Path=Text}" Content="Zoek" HorizontalAlignment="Left" Margin="155,121,0,0" VerticalAlignment="Top" Width="66"/>
+        <Button Command="{Binding EditContactPersonCommand}" Content="Bewerk" HorizontalAlignment="Left" Margin="576,437,0,0" VerticalAlignment="Top" Width="93" Height="38"/>
     </Grid>
 </UserControl>

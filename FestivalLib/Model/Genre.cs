@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using FestivalLib.Model;
 using DBHelper;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace FestivalLib.Model
 {
-   public class Genre
+    public class Genre : IDataErrorInfo
     {
         public int ID { get; set; }
+        [Required(ErrorMessage = "De naam is verplicht")]
         public String Name { get; set; }
         public static ObservableCollection<Genre> Soorten = new ObservableCollection<Genre>();
 
@@ -93,8 +96,56 @@ namespace FestivalLib.Model
             return list;
   
         }
+        public static void EditGenre(Genre gen)
+        {
+            try
+            {
 
-    
+                string sql = "UPDATE Genre SET Name=@name WHERE ID=@ID;";
 
+                DbParameter par1 = Database.AddParameter("@name", gen.Name);
+
+                DbParameter parID = Database.AddParameter("@ID", Convert.ToInt32(gen.ID));
+
+                Database.ModifyData(sql, par1, parID);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+        }
+
+
+
+        public bool IsValid()
+        {
+            return Validator.TryValidateObject(this, new ValidationContext(this, null, null), null, true);
+        }
+
+        public string Error
+        {
+            get { return null; }
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                try
+                {
+                    object value = this.GetType().GetProperty(columnName).GetValue(this);
+                    Validator.ValidateProperty(value, new ValidationContext(this, null, null) { MemberName = columnName });
+                }
+                catch (ValidationException ex)
+                {
+                    return ex.Message;
+                }
+                return String.Empty;
+            }
+        }
     }
 }

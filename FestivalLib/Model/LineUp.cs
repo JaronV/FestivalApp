@@ -55,7 +55,8 @@ namespace FestivalLib.Model
         public static ObservableCollection<LineUp> GetBandsByLineUpID(int id)
         {
             ObservableCollection<LineUp> lstGevondenLineUps = new ObservableCollection<LineUp>();
-            DbDataReader reader = Database.GetData("SELECT * FROM lineup WHERE lineup_stage = " + id + ";");
+            DbParameter paramid = Database.AddParameter("@ID", id);
+            DbDataReader reader = Database.GetData("SELECT * FROM lineup WHERE lineup_stage = @ID",paramid);
             while (reader.Read())
             {
                 lstGevondenLineUps.Add(CreateLineUp(reader));
@@ -78,8 +79,9 @@ namespace FestivalLib.Model
         public static LineUp GetLineUpByID(int id)
         {
             LineUp gevondenLineUp = new LineUp();
-            string sql = "SELECT * FROM lineup WHERE lineup_id = " + id + "";
-            DbDataReader reader = Database.GetData(sql);
+            DbParameter paramid = Database.AddParameter("@ID", id);
+            string sql = "SELECT * FROM lineup WHERE lineup_id = @ID";
+            DbDataReader reader = Database.GetData(sql,paramid);
             while (reader.Read())
             {
                 gevondenLineUp = CreateLineUp(reader);

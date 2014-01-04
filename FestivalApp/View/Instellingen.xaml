@@ -7,6 +7,23 @@
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="1024">
     <UserControl.Resources>
+        <Style x:Key="TextboxError" TargetType="{x:Type TextBox}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="Foreground" Value="Red"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <ControlTemplate x:Key="ErrorTemplate">
+            <StackPanel>
+                <TextBlock Foreground="Red" Text="{Binding [0].ErrorContent}"/>
+                <Border BorderBrush="Red" BorderThickness="2">
+                    <AdornedElementPlaceholder/>
+                </Border>
+
+            </StackPanel>
+        </ControlTemplate>
         
         <DataTemplate x:Key="GenreTemplate">
             <StackPanel>
@@ -31,19 +48,31 @@
         <Label Content="Instellingen" HorizontalAlignment="Left" Margin="26,25.5,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label Content="Type personen" HorizontalAlignment="Left" Margin="26,88.5,0,0" VerticalAlignment="Top" FontSize="18.667"/>
         <Label Content="Genres&#xD;&#xA;" HorizontalAlignment="Left" Margin="26,363,0,0" VerticalAlignment="Top" FontSize="18.667" Height="35.657" Width="131.637"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="240,128.33,0,0" TextWrapping="Wrap" Text="{Binding SelectedContactPerson.Name,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="240,128.33,0,0" TextWrapping="Wrap"
+                 Text="{Binding SelectedContactPerson.Name,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}"
+                 Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
+                 Style="{StaticResource TextboxError}"
+                 VerticalAlignment="Top" Width="120"/>
         <ListBox ItemsSource="{Binding ContactPersonTypes}" ItemTemplate="{StaticResource ContactPersonTypeTemplate}" SelectedItem="{Binding SelectedContactPerson}" HorizontalAlignment="Left" Height="215" Margin="26,128.33,0,0" VerticalAlignment="Top" Width="183"/>
         <ListBox ItemsSource="{Binding Genres}" ItemTemplate="{StaticResource GenreTemplate}" SelectedItem="{Binding SelectedGenre}" HorizontalAlignment="Left" Height="215" Margin="26,403.657,0,0" VerticalAlignment="Top" Width="183"/>
         <Button Command="{Binding AddContactPersonTypeCommand}" Content="New" HorizontalAlignment="Left" Margin="240,166,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Command="{Binding DeleteContactPersonTypeCommand}" Content="Verwijderen" HorizontalAlignment="Left" Margin="240,242.5,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Command="{Binding SaveContactPersonTypeCommand}" Content="Opslaan" HorizontalAlignment="Left" Margin="240,203.5,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="240,411.83,0,0" TextWrapping="Wrap" Text="{Binding SelectedGenre.Name,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="240,411.83,0,0" TextWrapping="Wrap"
+                 Text="{Binding SelectedGenre.Name,UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                  Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
+                 Style="{StaticResource TextboxError}"
+                 VerticalAlignment="Top" Width="120"/>
         <Button Command="{Binding AddGenreCommand}" Content="New" HorizontalAlignment="Left" Margin="240,449.5,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Command="{Binding DeleteGenreCommand}" Content="Verwijderen" HorizontalAlignment="Left" Margin="240,526,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Command="{Binding SaveGenreCommand}" Content="Opslaan" HorizontalAlignment="Left" Margin="240,487,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="Podia&#xA;" HorizontalAlignment="Left" Margin="435,363,0,0" VerticalAlignment="Top" FontSize="18.667" Height="36" Width="132"/>
         <ListBox ItemsSource="{Binding Podiums}" ItemTemplate="{StaticResource StageTemplate}" SelectedItem="{Binding SelectedStage}" HorizontalAlignment="Left" Height="215" Margin="435,404,0,0" VerticalAlignment="Top" Width="184"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="649,412,0,0" TextWrapping="Wrap" Text="{Binding SelectedStage.Name}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="649,412,0,0" TextWrapping="Wrap"
+                 Text="{Binding SelectedStage.Name, ValidatesOnDataErrors=True}"
+                  Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
+                 Style="{StaticResource TextboxError}"
+                    VerticalAlignment="Top" Width="120"/>
         <Button Command="{Binding AddStageCommand}" Content="New" HorizontalAlignment="Left" Margin="649,450,0,0" VerticalAlignment="Top" Width="76"/>
         <Button Command="{Binding DeleteStageCommand}" Content="Verwijderen" HorizontalAlignment="Left" Margin="649,526,0,0" VerticalAlignment="Top" Width="76"/>
         <Button Command="{Binding SaveStageCommand}" Content="Opslaan" HorizontalAlignment="Left" Margin="649,487,0,0" VerticalAlignment="Top" Width="76"/>
@@ -54,5 +83,8 @@
         <Button Command="{Binding AddFestivalCommand }" Content="Bevestig" HorizontalAlignment="Left" Margin="446,274,0,0" VerticalAlignment="Top" Width="120" Height="40"/>
         <DatePicker SelectedDate="{Binding BeginDatum }" x:Name="VanDatum" HorizontalAlignment="Left" Margin="517,160,0,0" VerticalAlignment="Top" />
         <DatePicker SelectedDate="{Binding EindDatum}" x:Name="TotDatum" HorizontalAlignment="Left" Margin="517,194,0,0" VerticalAlignment="Top" />
+        <Button Command="{Binding EditContactPersonTypeCommand}" Content="Bewerk" HorizontalAlignment="Left" Margin="240,274,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Command="{Binding EditGenreCommand}" Content="Bewerk" HorizontalAlignment="Left" Margin="240,564,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Command="{Binding EditStageCommand}" Content="Bewerk" HorizontalAlignment="Left" Margin="649,564,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </UserControl>

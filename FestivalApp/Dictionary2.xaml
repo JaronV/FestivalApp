@@ -11,8 +11,32 @@
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   mc:Ignorable="d"
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
+    <Style x:Key="TextboxError" TargetType="{x:Type TextBox}">
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="true">
+                <Setter Property="Foreground" Value="Red"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 
-    
+    <Style x:Key="ComboBoxError" TargetType="{x:Type ComboBox}">
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="true">
+                <Setter Property="Foreground" Value="Red"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <ControlTemplate x:Key="ErrorTemplate">
+        <StackPanel>
+            <TextBlock Foreground="Red" Text="{Binding [0].ErrorContent}"/>
+            <Border BorderBrush="Red" BorderThickness="2">
+                <AdornedElementPlaceholder/>
+            </Border>
+
+        </StackPanel>
+    </ControlTemplate>
+
     <SolidColorBrush x:Key="OutsideFontColor" Color="#FF000000" />
 
     <LinearGradientBrush x:Key="NormalBrush" EndPoint="0.5,1" StartPoint="0.5,0">

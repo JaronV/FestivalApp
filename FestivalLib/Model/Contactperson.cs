@@ -9,19 +9,28 @@ using System.Text;
 using System.Threading.Tasks;
 using FestivalLib.Model;
 using DBHelper;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace FestivalLib.Model
 {
-   public class Contactperson
+    public class Contactperson : IDataErrorInfo
     {
         public int ID { get; set; }
+        [Required(ErrorMessage = "De naam is verplicht")]
         public String Name { get; set; }
+        [Required(ErrorMessage = "Het Bedrijf is verplicht")]
         public String Company { get; set; }
+        [Required(ErrorMessage = "De Functie is verplicht")]
         public ContactpersonType JobRole { get; set; }
+        [Required(ErrorMessage = "De Stad is verplicht")]
         public String City { get; set; }
+        [Required(ErrorMessage = "Email is verplicht")]
         public String Email { get; set; }
+        [Required(ErrorMessage = "Telefoon Nr is verplicht")]
         public String Phone { get; set; }
+        [Required(ErrorMessage = "Gsm Nr is verplicht")]
         public String Cellphone { get; set; }
         public static ObservableCollection<Contactperson> Soorten = new ObservableCollection<Contactperson>();
 
@@ -99,8 +108,63 @@ namespace FestivalLib.Model
         {
             return Name;
         }
-       
+        public static void EditCp(Contactperson cp)
+        {
+            try
+            {
+   
+
+                string sql = "UPDATE ContactPerson SET Name=@name,Company = @company,JobRole = @role,City = @city,Email=@email,Phone = @phone,Cellphone= @cell WHERE ID=@ID;";
+
+                DbParameter par1 = Database.AddParameter("@name", cp.Name);
+                DbParameter par2 = Database.AddParameter("@company", cp.Company);
+                DbParameter par3 = Database.AddParameter("@role", cp.JobRole);
+                DbParameter par4 = Database.AddParameter("@city", cp.City);
+                DbParameter par5 = Database.AddParameter("@email", cp.Email);
+                DbParameter par6 = Database.AddParameter("@phone", cp.Phone);
+                DbParameter par7 = Database.AddParameter("@cell", cp.Cellphone);
+                DbParameter parID = Database.AddParameter("@ID", Convert.ToInt32(cp.ID));
+
+                Database.ModifyData(sql, par1,par2,par3,par4,par5,par6,par7, parID);
 
 
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+        }
+
+
+
+
+        public bool IsValid()
+        {
+            return Validator.TryValidateObject(this, new ValidationContext(this, null, null), null, true);
+        }
+
+        public string Error
+        {
+            get { return null; }
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                try
+                {
+                    object value = this.GetType().GetProperty(columnName).GetValue(this);
+                    Validator.ValidateProperty(value, new ValidationContext(this, null, null) { MemberName = columnName });
+                }
+                catch (ValidationException ex)
+                {
+                    return ex.Message;
+                }
+                return String.Empty;
+            }
+        }
     }
 }

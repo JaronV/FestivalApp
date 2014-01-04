@@ -65,7 +65,7 @@
         <ComboBox ItemsSource="{Binding Podiums}" DisplayMemberPath="Name" SelectedItem="{Binding LineUp.stage}" SelectedIndex="0" HorizontalAlignment="Left" Margin="89,387,0,0" VerticalAlignment="Top" Width="120" Height="20" Grid.Row="1" Grid.Column="1"/>
         <ComboBox ItemsSource="{Binding UniekeDagen}" DisplayMemberPath="Date" ItemStringFormat="dd/MM/yyyy" SelectedItem="{Binding LineUp.Date}" SelectedIndex="0" HorizontalAlignment="Left" Margin="89,427,0,0" VerticalAlignment="Top" Width="120" Height="22" Grid.Row="1" Grid.Column="1"/>
         <TextBlock  Text="Selecteer een dag" Margin="257,356,647,317" Grid.Row="1" Grid.Column="1"/>
-        <ComboBox  ItemsSource="{Binding UniekeDagen}" ItemStringFormat="dd/MM/yyyy" DisplayMemberPath="Date" SelectedIndex="0" SelectedItem="{Binding SelectedDag}" Margin="382,354,514,317" Grid.Row="1" Grid.Column="1"/>
+        <ComboBox  ItemsSource="{Binding UniekeDagen}" ItemStringFormat="dd/MM/yyyy" DisplayMemberPath="Date"  SelectedItem="{Binding SelectedDag}" Margin="382,354,514,317" Grid.Row="1" Grid.Column="1"/>
         <xctk:DateTimeUpDown Format="Custom" FormatString="HH:mm" Value="{Binding LineUp.From, UpdateSourceTrigger=LostFocus}" Margin="89,472,768,199" Grid.Row="1" Grid.Column="1"/>
         <xctk:DateTimeUpDown Format="Custom" FormatString="HH:mm" Value="{Binding LineUp.Until, UpdateSourceTrigger=LostFocus}" Margin="89,510,768,158" Grid.Row="1" Grid.Column="1" />
 

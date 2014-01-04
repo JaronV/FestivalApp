@@ -132,6 +132,14 @@ namespace FestivalApp.ViewModel
                 return new RelayCommand(DeleteGenre);
             }
         }
+
+        public ICommand EditGenreCommand
+        {
+            get
+            {
+                return new RelayCommand(EditGenre);
+            }
+        }
         //Podium command
         public ICommand AddStageCommand
         {
@@ -147,8 +155,6 @@ namespace FestivalApp.ViewModel
                 return new RelayCommand(SaveStage);
             }
         }
-
-
         public ICommand DeleteStageCommand
         {
             get
@@ -157,6 +163,14 @@ namespace FestivalApp.ViewModel
             }
         }
 
+        public ICommand EditStageCommand
+        {
+            get
+            {
+                return new RelayCommand(EditStage);
+            }
+        }
+       
 
         //Podium command
         public ICommand AddContactPersonTypeCommand
@@ -176,13 +190,19 @@ namespace FestivalApp.ViewModel
             }
         }
 
-    
-
         public ICommand DeleteContactPersonTypeCommand
         {
             get
             {
                 return new RelayCommand(DeleteContactPerson);
+            }
+        }
+
+        public ICommand EditContactPersonTypeCommand
+        {
+            get
+            {
+                return new RelayCommand(Editcp);
             }
         }
         public ICommand AddFestivalCommand
@@ -199,6 +219,7 @@ namespace FestivalApp.ViewModel
                 return new RelayCommand(DeleteFestival);
             }
         }
+
 
 
         #endregion
@@ -234,14 +255,20 @@ namespace FestivalApp.ViewModel
         }
         public void SaveStage()
         {
-            Stage.AddType(SelectedStage); 
+            Stage.AddType(SelectedStage);
+            Podiums = Stage.GetStages();
+            
         }
         public void DeleteStage()
         {
             Stage.DeleteType(SelectedStage);
             Podiums.Remove(SelectedStage);
         }
-
+        private void EditStage()
+        {
+            Stage.EditStage(SelectedStage);
+        }
+       
        
 
         //Genre methods
@@ -254,12 +281,17 @@ namespace FestivalApp.ViewModel
         }
         private void SaveGenre()
         {
-            Genre.AddType(SelectedGenre);  
+            Genre.AddType(SelectedGenre);
+            Genres = Genre.GetGenres();
         }
         private void DeleteGenre()
         {
             Genre.DeleteType(SelectedGenre);
             Genres.Remove(SelectedGenre);
+        }
+        private void EditGenre()
+        {
+           Genre.EditGenre(SelectedGenre);
         }
         //ContactpersonType methods
 
@@ -273,13 +305,18 @@ namespace FestivalApp.ViewModel
 
         private void SaveContactPersonType()
         {
-            ContactpersonType.AddType(SelectedContactPerson); 
+            ContactpersonType.AddType(SelectedContactPerson);
+            ContactPersonTypes = ContactpersonType.GetContactPersonType();
         }
 
         private void DeleteContactPerson()
         {
             ContactpersonType.DeleteType(SelectedContactPerson);
             ContactPersonTypes.Remove(SelectedContactPerson);
+        }
+        private void Editcp()
+        {
+            ContactpersonType.Editct(SelectedContactPerson);
         }
 
         

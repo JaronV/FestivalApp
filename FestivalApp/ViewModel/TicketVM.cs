@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using FestivalLib.Model;
 using GalaSoft.MvvmLight.Command;
 using System.Windows.Input;
+using System.Windows.Forms;
 
 namespace FestivalApp.ViewModel
 {
@@ -141,7 +142,25 @@ namespace FestivalApp.ViewModel
                 return new RelayCommand(DeleteTicket);
             }
         }
+        public ICommand EditTicketCommand
+        {
+            get
+            {
+                return new RelayCommand(EditTicket);
+            }
+        }
+        public ICommand EditTicketTypeCommand
+        {
+            get
+            {
+                return new RelayCommand(EditTicketType);
+            }
+        }
 
+        private void EditTicketType()
+        {
+            TicketType.EditTicket(SelectedTicketType);
+        }
         private void AddTicket()
         {
             FestivalLib.Model.Ticket nieuw = new FestivalLib.Model.Ticket();
@@ -153,10 +172,12 @@ namespace FestivalApp.ViewModel
 
         private void SaveTicket()
         {
-            if (SaveValidBand())
+            if (SaveValidTicket())
             {
                 FestivalLib.Model.Ticket.AddType(SelectedTicket);
+                Tickets = FestivalLib.Model.Ticket.GetTickets();
             }
+            else { MessageBox.Show("zijn alle velden correct aangevuld?"); }
         }
 
         private void DeleteTicket()
@@ -164,15 +185,44 @@ namespace FestivalApp.ViewModel
             FestivalLib.Model.Ticket.DeleteType(SelectedTicket);
             Tickets.Remove(SelectedTicket);
         }
-
+        private void EditTicket()
+        {
+            FestivalLib.Model.Ticket.EditTicket(SelectedTicket);
+        }
         #endregion
-        private bool SaveValidBand()
+        private bool SaveValidTicket()
         {
             if (SelectedTicket != null)
             {
                 return SelectedTicket.IsValid();
             }
             else return false;
+        }
+
+        private bool SaveValidTicketType()
+        {
+            if (SelectedTicketType != null)
+            {
+                return SelectedTicketType.IsValid();
+            }
+            else return false;
+        }
+        public ICommand PrintTicketCommand
+        {
+            get { return new RelayCommand(PrintTicket); }
+        }
+
+        private void PrintTicket()
+        {
+            FestivalLib.Model.Ticket ticket = SelectedTicket;
+            Festival festival = Festival.GetData();
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            DialogResult result = fbd.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                string sPad = fbd.SelectedPath;
+                FestivalLib.Model.Ticket.PrintWord(ticket, festival, sPad);
+            }
         }
     }
 }

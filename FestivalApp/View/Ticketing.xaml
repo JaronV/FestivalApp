@@ -10,7 +10,7 @@
         <DataTemplate x:Key="TicketTypeTemplate">
             <StackPanel>
                 <TextBlock Text="{Binding Name}"/>
-                <TextBlock Text="{Binding Price}"/>
+                <TextBlock Text="{Binding kortedatum}"/>
             </StackPanel>
         </DataTemplate>
 
@@ -22,10 +22,11 @@
 
         <ControlTemplate x:Key="ErrorTemplate">
             <StackPanel>
+                <TextBlock Foreground="Red" Text="{Binding [0].ErrorContent}"/>
                 <Border BorderBrush="Red" BorderThickness="2">
                     <AdornedElementPlaceholder/>
                 </Border>
-                <TextBlock Foreground="Red" Text="{Binding [0].ErrorContent}"/>
+               
             </StackPanel>
         </ControlTemplate>
         <Style x:Key="TextboxError" TargetType="{x:Type TextBox}">
@@ -35,7 +36,13 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-
+        <Style x:Key="ComboBoxError" TargetType="{x:Type ComboBox}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="Foreground" Value="Red"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </UserControl.Resources>
     <Grid>
         <Grid.DataContext>
@@ -45,8 +52,16 @@
         <Button x:Name="Tickettype_verwijder" Command="{Binding DeleteTickettypeCommand}" Content="Verwijderen" HorizontalAlignment="Left" Margin="368,251,0,0" VerticalAlignment="Top" Width="76"/>
         <Button x:Name="Tickettype_bewerk" Command="{Binding SaveTickettypeCommand}" Content="Opslaan" HorizontalAlignment="Left" Margin="270,251,0,0" VerticalAlignment="Top" Width="74" />
         <TextBox x:Name="txtVerkrijgbaar" HorizontalAlignment="Left" Height="22" Margin="250,170,0,0" TextWrapping="Wrap" Text="{Binding SelectedTicketType.AvailableTickets,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtPrijs" HorizontalAlignment="Left" Height="23" Margin="250,126,0,0" TextWrapping="Wrap" Text="{Binding SelectedTicketType.Price,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtSoort" HorizontalAlignment="Left" Height="23" Margin="250,78,0,0" TextWrapping="Wrap" Text="{Binding SelectedTicketType.Name,UpdateSourceTrigger=PropertyChanged, FallbackValue='Soort'}" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="txtPrijs" HorizontalAlignment="Left" Height="23" Margin="250,126,0,0" TextWrapping="Wrap"
+                 Text="{Binding SelectedTicketType.Price,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}"
+                 Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
+                 Style="{StaticResource TextboxError}"
+                 VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtSoort" HorizontalAlignment="Left" Height="23" Margin="250,78,0,0" TextWrapping="Wrap"
+                 Text="{Binding SelectedTicketType.Name,UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                  Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
+                 Style="{StaticResource TextboxError}"
+                 VerticalAlignment="Top" Width="120" />
         <ListBox ItemsSource="{Binding Tickettypes}" ItemTemplate="{StaticResource TicketTypeTemplate}" SelectedItem="{Binding SelectedTicketType}"  HorizontalAlignment="Left" Height="182" Margin="10,74,0,0" VerticalAlignment="Top" Width="129"/>
         <Label Content="Tickets" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label Content="Festivaltickets" HorizontalAlignment="Left" Margin="10,53.373,0,0" VerticalAlignment="Top"/>
@@ -57,22 +72,35 @@
         <TextBox Text="{Binding SelectedTicket.Ticketholder,UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" 
                  Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
                  Style="{StaticResource TextboxError}" HorizontalAlignment="Left"  Height="23" Margin="89,335,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <TextBox Text="{Binding SelectedTicket.TicketholderEmail,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="24" Margin="89,370,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBox Text="{Binding SelectedTicket.TicketholderEmail,UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                  Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
+                 Style="{StaticResource TextboxError}"
+                 HorizontalAlignment="Left" Height="24" Margin="89,370,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        
         <ComboBox 
             DisplayMemberPath="Name"
             ItemsSource="{Binding Tickettypes}"
-            SelectedItem="{Binding SelectedTicket.tickettype}"
+            SelectedItem="{Binding SelectedTicket.tickettype, ValidatesOnDataErrors=True}"
             SelectedValue="{Binding SelectedTicket.tickettype.ID}"
             SelectedValuePath="ID"
-            
+            Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
+            Style="{StaticResource ComboBoxError}"
             HorizontalAlignment="Left" Margin="89,402,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button Command="{Binding AddTicketCommand}" Content="New" HorizontalAlignment="Left" Margin="144,502,0,0" VerticalAlignment="Top" Width="65"/>
-        <Button Command="{Binding SaveTicketCommand}" Content="Toevoegen" HorizontalAlignment="Left" Margin="215,502,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Command="{Binding DeleteTicketCommand}" Content="Verwijderen" HorizontalAlignment="Left" Margin="295,502,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox Text="{Binding SelectedTicket.Amount,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}"
+                  Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
+                 Style="{StaticResource TextboxError}"
+                 HorizontalAlignment="Left" Height="23" Margin="89,438,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <Button Command="{Binding AddTicketCommand}" Content="New" HorizontalAlignment="Left" Margin="99,502,0,0" VerticalAlignment="Top" Width="65"/>
+        <Button Command="{Binding SaveTicketCommand}" Content="Toevoegen" HorizontalAlignment="Left" Margin="170,502,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Command="{Binding DeleteTicketCommand}" Content="Verwijderen" HorizontalAlignment="Left" Margin="250,502,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="Soort" HorizontalAlignment="Left" Margin="174,78,0,0" VerticalAlignment="Top" Height="23" Width="61"/>
         <Label Content="Prijs" HorizontalAlignment="Left" Margin="174,126,0,0" VerticalAlignment="Top" Height="23" Width="61"/>
         <Label Content="Verkrijgbaar" HorizontalAlignment="Left" Margin="171,169,0,0" VerticalAlignment="Top" Height="23" Width="72"/>
-        <ComboBox ItemsSource="{Binding UniekeDagen}" DisplayMemberPath="Date" ItemStringFormat="dd/MM/yyyy" SelectedItem="{Binding SelectedTicketType.Datum}" SelectedIndex="0" HorizontalAlignment="Left" Margin="250,203,0,0" VerticalAlignment="Top" Width="120" Height="22"/>
+        <ComboBox ItemsSource="{Binding UniekeDagen}" DisplayMemberPath="Date" ItemStringFormat="dd/MM/yyyy"
+                  SelectedItem="{Binding SelectedTicketType.Datum,ValidatesOnDataErrors=True}"
+                   Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
+            Style="{StaticResource ComboBoxError}"
+                  SelectedIndex="0" HorizontalAlignment="Left" Margin="250,203,0,0" VerticalAlignment="Top" Width="120" Height="22"/>
         <ListView Margin="395,328,17,246" Name="lsvReserveringen" ItemsSource="{Binding Tickets, Mode=TwoWay}" SelectedItem="{Binding SelectedTicket}" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <ListView.View>
                 <GridView >
@@ -88,7 +116,10 @@
             </ListView.View>
         </ListView>
         <Label Content="Aantal" HorizontalAlignment="Left" Margin="13,438,0,0" VerticalAlignment="Top" Height="24" Width="50"/>
-        <TextBox Text="{Binding SelectedTicket.Amount}" HorizontalAlignment="Left" Height="23" Margin="89,438,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-
+       
+        <Button Command="{Binding PrintTicketCommand}" Content="Export Word" HorizontalAlignment="Left" Margin="99,560,0,0" VerticalAlignment="Top" Width="110" Height="20"/>
+        <Button Command="{Binding EditTicketCommand}" Content="Bewerk" HorizontalAlignment="Left" Margin="232,560,0,0" VerticalAlignment="Top" Width="74"/>
+        <Button Command="{Binding EditTicketTypeCommand}" Content="Bewerk" HorizontalAlignment="Left" Margin="476,251,0,0" VerticalAlignment="Top" Width="74"/>
+        <!--Command="{Binding ElementName=lsvReserveringen, Path=DataContext.PrintTicketCommand}" CommandParameter="{Binding Path=ID}"-->
     </Grid>
 </UserControl>

@@ -31,7 +31,7 @@ namespace FestivalApp.ViewModel
         {
             _bands = Band.getBands();
             _genres = Genre.GetGenres();
-          
+          _imageSource = convertStringToByte("../../content/images/blank.jpg");
         }
         #region fields
         private ObservableCollection<Band> _bands = new ObservableCollection<Band>();
@@ -40,7 +40,14 @@ namespace FestivalApp.ViewModel
         private Band _selectedBand;
         private Genre _selectedAlleGenre;
         private Genre _selectedHuidigeGenre;
+        private Band band;
+        private byte[] _imageSource;
 
+        public byte[] ImageSource
+        {
+            get { return _imageSource; }
+            set { _imageSource = value; OnPropertyChanged("ImageSource"); }
+        }
         public ObservableCollection<Genre> Huidigegenres
         {
             get { return _huidigegenres; }
@@ -74,7 +81,19 @@ namespace FestivalApp.ViewModel
         public Band SelectedBand
         {
             get { return _selectedBand;  }
-            set { _selectedBand = value; OnPropertyChanged("SelectedBand"); _huidigegenres = Genre.GetGenreByID(SelectedBand.ID); OnPropertyChanged("Huidigegenres"); }
+            set { _selectedBand = value;
+                OnPropertyChanged("SelectedBand"); _huidigegenres = Genre.GetGenreByID(SelectedBand.ID);
+                OnPropertyChanged("Huidigegenres"); band = SelectedBand;
+                if (SelectedBand.Picture != null && SelectedBand.Picture.Length > 6)
+                {
+                    ImageSource = SelectedBand.Picture;
+                }
+                else
+                {
+                    ImageSource = convertStringToByte("../../content/images/blank.jpg");
+                    SelectedBand.Picture = ImageSource;
+                }
+            }
         }
 
         #endregion
@@ -121,7 +140,12 @@ namespace FestivalApp.ViewModel
         {
             get { return new RelayCommand(setImage); }
         }
+        public ICommand EditBandCommand
+        {
+            get { return new RelayCommand(EditBand); }
+        }
 
+       
         private void setImage()
         {
             Microsoft.Win32.OpenFileDialog ofd = new Microsoft.Win32.OpenFileDialog();
@@ -143,17 +167,24 @@ namespace FestivalApp.ViewModel
             Band b = new Band();
             Bands.Add(b);
             SelectedBand = b;
+            
         }
 
         private void SaveBand()
         {
             Band.AddType(SelectedBand, Huidigegenres);
+            Bands = Band.getBands();
         }
 
         private void DeleteBand()
         {
             Band.DeleteType(SelectedBand);
             Bands.Remove(SelectedBand);
+           
+        }
+        private void EditBand()
+        {
+            Band.EditBand(band, Huidigegenres);
         }
  
         private void VoegGenreToe()
@@ -166,7 +197,15 @@ namespace FestivalApp.ViewModel
         {
             Huidigegenres.Remove(SelectedHuidigeGenre);
         }
-        
+        private static byte[] convertStringToByte(string sPad)
+        {
+            //volgende 4 lijnen code = om geselecteerde image om te zetten naar BLOB capable formaat
+            byte[] btImage = null;
+            FileStream fstStream = new FileStream(sPad, FileMode.Open, FileAccess.Read);
+            BinaryReader brReader = new BinaryReader(fstStream);
+            btImage = brReader.ReadBytes((int)fstStream.Length);
+            return btImage;
+        }
         
         }
     }

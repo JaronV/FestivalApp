@@ -46,11 +46,27 @@
         <Button Command="{Binding AddBandCommand}" x:Name="btnNew" Content="New" HorizontalAlignment="Left" Margin="389,514,0,0" VerticalAlignment="Top" Width="76" Height="38"/>
         <Button Command="{Binding SaveBandCommand}" x:Name="btnToevoegen" Content="Toevoegen" HorizontalAlignment="Left" Margin="494,514,0,0" VerticalAlignment="Top" Width="76" Height="38"/>
         <Button Command="{Binding DeleteBandCommand}" x:Name="btnVerwijder" Content="Verwijderen" HorizontalAlignment="Left" Margin="593,514,0,0" VerticalAlignment="Top" Width="76" Height="38"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="383,142,0,0" TextWrapping="Wrap" Text="{Binding SelectedBand.Name,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="53" Margin="383,184,0,0" TextWrapping="Wrap" Text="{Binding SelectedBand.Description,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="214"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="383,142,0,0" TextWrapping="Wrap"
+                 Text="{Binding SelectedBand.Name,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}"
+                  Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
+                 Style="{StaticResource TextboxError}"
+                 VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="53" Margin="383,184,0,0" TextWrapping="Wrap"
+                 Text="{Binding SelectedBand.Description,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}"
+                  Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
+                 Style="{StaticResource TextboxError}"
+                 VerticalAlignment="Top" Width="214"/>
       
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="383,284,0,0" TextWrapping="Wrap" Text="{Binding SelectedBand.Facebook,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="383,312,0,0" TextWrapping="Wrap" Text="{Binding SelectedBand.Twitter,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="383,284,0,0" TextWrapping="Wrap" 
+                 Text="{Binding SelectedBand.Facebook,UpdateSourceTrigger=PropertyChanged}"
+                  Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
+                 Style="{StaticResource TextboxError}"
+                 VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="383,312,0,0" TextWrapping="Wrap"
+                 Text="{Binding SelectedBand.Twitter,UpdateSourceTrigger=PropertyChanged}" 
+                 Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
+                 Style="{StaticResource TextboxError}"
+                 VerticalAlignment="Top" Width="120"/>
         <ListBox ItemsSource="{Binding Huidigegenres,UpdateSourceTrigger=PropertyChanged}" ItemTemplate="{StaticResource GenreTemplate}" SelectedItem="{Binding SelectedHuidigeGenre,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="114" Margin="387,379,0,0" VerticalAlignment="Top" Width="145"/>
         <Label Content="Genres&#xD;&#xA;" HorizontalAlignment="Left" Margin="296,379,0,0" VerticalAlignment="Top" Height="26" Width="63"/>
         <ListBox ItemsSource="{Binding Genres}" ItemTemplate="{StaticResource GenreTemplate}" SelectedItem="{Binding SelectedAlleGenre }" HorizontalAlignment="Left" Height="114" Margin="577,379,0,0" VerticalAlignment="Top" Width="145"/>
@@ -59,6 +75,7 @@
         <Button Command="{Binding VerwijderGenreCommand}" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="537,439,0,0" VerticalAlignment="Top" Width="31" Height="19" RenderTransformOrigin="0.484,0.526" />
         <Button Command="{Binding VoegGenreToeCommand}" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="537,404,0,0" VerticalAlignment="Top" Width="31" Height="19" />
         <Button Command="{Binding OpenImageCommand}" Content="Selecteer afbeelding" HorizontalAlignment="Left" Margin="387,248,0,0" VerticalAlignment="Top" Width="126" Height="25" />
-       
+        <Button Command="{Binding EditBandCommand}" Content="Button" HorizontalAlignment="Left" Margin="383,574,0,0" VerticalAlignment="Top" Width="107" Height="32"/>
+
     </Grid>
 </UserControl>
