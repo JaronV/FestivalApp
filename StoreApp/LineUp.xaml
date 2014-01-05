@@ -1,0 +1,69 @@
+﻿<Page
+    x:Class="StoreApp.LineUp"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:StoreApp"
+    xmlns:data="using:StoreApp.Data"
+    xmlns:common="using:StoreApp.Common"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:datamodel="using:StoreApp.DataModel"
+    xmlns:test="http://schemas.datacontract.org/2004/07/FestivalLibPortable"
+    mc:Ignorable="d">
+    <Page.Resources>
+
+        <DataTemplate x:Key="test">
+            <TextBlock Text="{Binding Name}" Height="62" Margin="0,0,1100,0"></TextBlock>
+
+        </DataTemplate>
+
+        <!--band template-->
+        <DataTemplate x:Key="scBandTemplate">
+            <Border BorderBrush="#2E2E2E" BorderThickness="1" Margin="2,2,9,2" Height="59">
+                <StackPanel Background="#2E2E2E" Margin="0,10,-1,-1">
+                    <TextBlock Text="{Binding band.Name}" Margin="0,0,105,0"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding From}" />
+                        <TextBlock Text="-"/>
+                        <TextBlock Text="{Binding Until}" Height="23" />
+                    </StackPanel>
+                    
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="scStageTemplate">
+
+            <StackPanel>
+                <TextBlock Text="{Binding Name}" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <ItemsControl Margin="20,0,25,0" ItemTemplate="{StaticResource scBandTemplate}" ItemsSource="{Binding Bands}"/>
+            </StackPanel>
+
+        </DataTemplate>
+
+    </Page.Resources>
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="83*"/>
+            <RowDefinition Height="686*"/>
+        </Grid.RowDefinitions>
+        <Grid.DataContext>
+            <datamodel:LineUpVM></datamodel:LineUpVM>
+        </Grid.DataContext>
+
+        <Button Content="Bands" Width="140" Click="Button_Click" Margin="173,31,0,13.5" Grid.Row="0" />
+        <Button Content="Line Up" Width="140" Click="Button_Click_1" Margin="10,31,0,13.5" Grid.Row="0"/>
+        <Button Content="Genre" Width="140"  Margin="338,31,0,13.5" Click="Button_Click_2" Grid.Row="0"/>
+        <ItemsControl
+            ItemsSource="{Binding NieuweStages}"
+            ItemTemplate="{StaticResource scStageTemplate}" Margin="10,5.5,-10,76" Grid.Row="1"
+            
+            />
+
+
+
+
+    </Grid>
+</Page>

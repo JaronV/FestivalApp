@@ -14,11 +14,11 @@ namespace FestivalLib.Model
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public String Naam { get; set; }
-
+  
         public static Festival GetData()
         {
             Festival nieuw= new Festival();
-
+           
             string sql = "SELECT * FROM Festival";
 
             DbDataReader reader = Database.GetData(sql);
@@ -61,13 +61,13 @@ namespace FestivalLib.Model
             }
         }
 
-        public static void DeleteType(Ticket SelectedTicket)
+        public static void DeleteType()
         {
             try
             {
-                DbParameter paramName = Database.AddParameter("@Name", SelectedTicket.Ticketholder);
+                
 
-                Database.ModifyData("DELETE FROM TicketType WHERE Name = @Name", paramName);
+                Database.ModifyData("DELETE * FROM Festival ");
 
             }
             catch (Exception e)

@@ -110,18 +110,26 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BandDetail.xaml.cs">
+      <DependentUpon>BandDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BandsPerGenre.xaml.cs">
+      <DependentUpon>BandsPerGenre.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="DataModel\BandGenreVM.cs" />
     <Compile Include="DataModel\BandVM.cs" />
     <Compile Include="DataModel\ByteToImageConverter.cs" />
+    <Compile Include="DataModel\GenreVM.cs" />
     <Compile Include="DataModel\LineUpVM.cs" />
-    <Compile Include="GroupedItemsPage.xaml.cs">
-      <DependentUpon>GroupedItemsPage.xaml</DependentUpon>
+    <Compile Include="Genres.xaml.cs">
+      <DependentUpon>Genres.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GroupDetailPage.xaml.cs">
-      <DependentUpon>GroupDetailPage.xaml</DependentUpon>
+    <Compile Include="ItemsPage.xaml.cs">
+      <DependentUpon>ItemsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ItemDetailPage.xaml.cs">
-      <DependentUpon>ItemDetailPage.xaml</DependentUpon>
+    <Compile Include="LineUp.xaml.cs">
+      <DependentUpon>LineUp.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataModel\SampleDataSource.cs" />
@@ -156,21 +164,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="BandDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BandsPerGenre.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Common\StandardStyles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GroupedItemsPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Genres.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GroupDetailPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="ItemsPage.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ItemDetailPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="LineUp.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">

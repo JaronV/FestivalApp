@@ -1,0 +1,37 @@
+﻿<Page
+    x:Class="StoreApp.BandsPerGenre"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:StoreApp"
+     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     xmlns:datamodel="using:StoreApp.DataModel"
+     xmlns:c="using:StoreApp.DataModel"
+    mc:Ignorable="d">
+    <Page.Resources>
+       
+        <c:ByteToImageConverter x:Key="byteImageConverter"/>
+        <DataTemplate x:Key="BandTemplate">
+            <Grid HorizontalAlignment="Left" Width="250" Height="250">
+                <Border>
+                    <Image Source="{Binding Picture, Converter={StaticResource byteImageConverter}}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
+                </Border>
+                <StackPanel VerticalAlignment="Bottom" >
+                    <TextBlock Text="{Binding Name}"  Margin="15,0,15,0" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Descr}"   TextWrapping="NoWrap" Margin="15,0,15,5" FontSize="12"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="111*"/>
+        </Grid.RowDefinitions>
+        <Button Content="Bands" Width="140" Click="Button_Click" Margin="173,35,0,29" Grid.Row="0" />
+        <Button Content="Line Up" Width="140" Click="Button_Click_1" Margin="28,35,0,29" Grid.Row="0" />
+        <Button Content="Genre" Width="140"  Margin="335,35,0,29" Click="Button_Click_2" Grid.Row="0" />
+        <ItemsControl x:Name="DeBands"  ItemTemplate="{StaticResource BandTemplate}" Margin="42,26,0,0" Grid.Row="1"/>
+    </Grid>
+</Page>

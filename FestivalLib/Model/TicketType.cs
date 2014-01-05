@@ -22,7 +22,6 @@ namespace FestivalLib.Model
         public double Price { get; set; }
         [Required(ErrorMessage = "Aantal is verplicht")]
         public int AvailableTickets { get; set; }
-
         [Required(ErrorMessage = "Datum is verplicht")]
         public DateTime Datum { get; set; }
         public  static ObservableCollection<TicketType> Soorten = new ObservableCollection<TicketType>();

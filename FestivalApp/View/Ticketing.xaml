@@ -96,11 +96,13 @@
         <Label Content="Soort" HorizontalAlignment="Left" Margin="174,78,0,0" VerticalAlignment="Top" Height="23" Width="61"/>
         <Label Content="Prijs" HorizontalAlignment="Left" Margin="174,126,0,0" VerticalAlignment="Top" Height="23" Width="61"/>
         <Label Content="Verkrijgbaar" HorizontalAlignment="Left" Margin="171,169,0,0" VerticalAlignment="Top" Height="23" Width="72"/>
-        <ComboBox ItemsSource="{Binding UniekeDagen}" DisplayMemberPath="Date" ItemStringFormat="dd/MM/yyyy"
+        <ComboBox ItemsSource="{Binding UniekeDagen}" 
+                  DisplayMemberPath="Date" ItemStringFormat="dd/MM/yyyy"
                   SelectedItem="{Binding SelectedTicketType.Datum,ValidatesOnDataErrors=True}"
+                 
                    Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
             Style="{StaticResource ComboBoxError}"
-                  SelectedIndex="0" HorizontalAlignment="Left" Margin="250,203,0,0" VerticalAlignment="Top" Width="120" Height="22"/>
+                   HorizontalAlignment="Left" Margin="250,203,0,0" VerticalAlignment="Top" Width="120" Height="22"/>
         <ListView Margin="395,328,17,246" Name="lsvReserveringen" ItemsSource="{Binding Tickets, Mode=TwoWay}" SelectedItem="{Binding SelectedTicket}" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <ListView.View>
                 <GridView >

@@ -56,14 +56,13 @@
                   Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
                  Style="{StaticResource TextboxError}"
                  VerticalAlignment="Top" Width="214"/>
-      
         <TextBox HorizontalAlignment="Left" Height="23" Margin="383,284,0,0" TextWrapping="Wrap" 
-                 Text="{Binding SelectedBand.Facebook,UpdateSourceTrigger=PropertyChanged}"
+                 Text="{Binding SelectedBand.Facebook,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}"
                   Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
                  Style="{StaticResource TextboxError}"
                  VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="383,312,0,0" TextWrapping="Wrap"
-                 Text="{Binding SelectedBand.Twitter,UpdateSourceTrigger=PropertyChanged}" 
+                 Text="{Binding SelectedBand.Twitter,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" 
                  Validation.ErrorTemplate="{StaticResource ErrorTemplate }" 
                  Style="{StaticResource TextboxError}"
                  VerticalAlignment="Top" Width="120"/>
@@ -75,7 +74,7 @@
         <Button Command="{Binding VerwijderGenreCommand}" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="537,439,0,0" VerticalAlignment="Top" Width="31" Height="19" RenderTransformOrigin="0.484,0.526" />
         <Button Command="{Binding VoegGenreToeCommand}" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="537,404,0,0" VerticalAlignment="Top" Width="31" Height="19" />
         <Button Command="{Binding OpenImageCommand}" Content="Selecteer afbeelding" HorizontalAlignment="Left" Margin="387,248,0,0" VerticalAlignment="Top" Width="126" Height="25" />
-        <Button Command="{Binding EditBandCommand}" Content="Button" HorizontalAlignment="Left" Margin="383,574,0,0" VerticalAlignment="Top" Width="107" Height="32"/>
+        <Button Command="{Binding EditBandCommand}" Content="Bewerken" HorizontalAlignment="Left" Margin="686,514,0,0" VerticalAlignment="Top" Width="70" Height="38"/>
 
     </Grid>
 </UserControl>

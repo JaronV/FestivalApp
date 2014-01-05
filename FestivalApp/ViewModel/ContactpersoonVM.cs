@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Input;
 
 namespace FestivalApp.ViewModel
@@ -41,13 +42,9 @@ namespace FestivalApp.ViewModel
             get { return _contactPersons; }
             set { _contactPersons = value; OnPropertyChanged("ContactPersons"); }
         }
-        private ObservableCollection<Contactperson> _gefilterdeContacts;
+        
 
-        public ObservableCollection<Contactperson> GefilterdeContacts
-        {
-            get { return _gefilterdeContacts; }
-            set { _gefilterdeContacts = value; OnPropertyChanged("GefilterdeContacts"); }
-        }    
+        
         #endregion
 
         #region "selected veld"
@@ -99,6 +96,14 @@ namespace FestivalApp.ViewModel
 
         #endregion
         //methods
+        private bool SaveValidCP()
+        {
+            if (SelectedContactPersoon != null)
+            {
+                return SelectedContactPersoon.IsValid();
+            }
+            else return false;
+        }
         private void AddContactPerson()
         {
             Contactperson person = new Contactperson();
@@ -108,28 +113,65 @@ namespace FestivalApp.ViewModel
 
         private void SaveContactPerson()
         {
-            Contactperson.AddType(SelectedContactPersoon);
-            ContactPersons = Contactperson.GetContactPersonType();
+            if (SaveValidCP())
+            {
+                Contactperson.AddType(SelectedContactPersoon);
+                ContactPersons = Contactperson.GetContactPersonType();
+            }
+            else { MessageBox.Show("zijn alle velden correct aangevuld?"); }
         }
 
         private void DeleteContactPerson()
         {
-            Contactperson.DeleteType(SelectedContactPersoon);
-            ContactPersons.Remove(SelectedContactPersoon);
+            if (SelectedContactPersoon != null)
+            {
+                if (SelectedContactPersoon.ID != 0)
+                {
+                    Contactperson.DeleteType(SelectedContactPersoon);
+                    ContactPersons.Remove(SelectedContactPersoon);
+                    ContactPersons = Contactperson.GetContactPersonType();
+                }
+                else
+                {
+                    MessageBox.Show("dit is een ongeldige actie");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Gelieve eerst een Item te selecteren");
+            }
+        
         }
         private void EditContact()
         {
-            Contactperson.EditCp(SelectedContactPersoon);
-        }
-        //public ICommand SearchCommand
-        //{
+            if (SelectedContactPersoon != null)
+            {
+                if (SelectedContactPersoon.ID != 0)
+                {
+                    Contactperson.EditCp(SelectedContactPersoon);
+                }
+                else
+                {
+                    MessageBox.Show("dit is een ongeldige actie");
+                }
 
-        //    get { return new RelayCommand<string>(Search); }
-        //}
-        //private void Search(string str)
-        //{
-        //    Console.WriteLine(str);
-        //    GefilterdeContacts = Contactperson.GetContactsByString(Contacts, str);
-        //}
+            }
+            else
+            {
+                MessageBox.Show("Gelieve eerst een Item te selecteren");
+            }
+       
+        }
+        public ICommand SearchCommand
+        {
+
+            get { return new RelayCommand<string>(Search); }
+        }
+        private void Search(string str)
+        {
+            Console.WriteLine(str);
+            ContactPersons = Contactperson.GetContactsByString(ContactPersons, str);
+        }
     }
 }

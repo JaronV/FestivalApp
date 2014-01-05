@@ -20,8 +20,9 @@ namespace FestivalApp.ViewModel
          // _stagesPerDag = Stage.GetStagesByDay(SelectedDag);
            _podiums = Stage.GetStages();
             _lineUp = new LineUp();
+           
         }
-    
+        public DateTime dag;
         public string Name
         {
             get
@@ -30,7 +31,7 @@ namespace FestivalApp.ViewModel
             }
         }
         #region fields en props
-        private DateTime geselecteerd;
+       
         private ObservableCollection<Stage> _podiums = new ObservableCollection<Stage>();
         public ObservableCollection<Stage> Podiums
         {
@@ -47,7 +48,7 @@ namespace FestivalApp.ViewModel
                 _selectedDag = value;
                 OnPropertyChanged("SelectedDag");
                 StagesPerDag = Stage.GetStagesByDay(SelectedDag);
-                geselecteerd = SelectedDag;
+                dag = SelectedDag;
             }
         }
         
@@ -93,9 +94,19 @@ namespace FestivalApp.ViewModel
         }
         public void SaveLineUp()
         {
+            
             LineUp.AddLineUp(LineUp);
-
-            StagesPerDag = Stage.GetStagesByDay(SelectedDag);
+           
+                
+                    if (SelectedDag == dag)
+                    {
+                    }
+                    else
+                    {
+                        StagesPerDag = Stage.GetStagesByDay(SelectedDag);
+                       
+                    }
+ 
         }
 
 
@@ -107,9 +118,9 @@ namespace FestivalApp.ViewModel
         {
             int bandID = Convert.ToInt32(LineUp.GetLineUpByID(id).band.ID);
            
-               Band.DeleteBandFromLineUp(id);
+               Band.DeleteLineUp(id);
                Bands = Band.getBands();
-               StagesPerDag = Stage.GetStagesByDay(SelectedDag);
+              
 
         }
         public ICommand DeleteStageCommand

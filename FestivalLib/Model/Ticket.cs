@@ -91,9 +91,9 @@ namespace FestivalLib.Model
         {
             try
             {
-                DbParameter paramName = Database.AddParameter("@Name", SelectedTicket.Ticketholder);
+                DbParameter paramName = Database.AddParameter("@Name", SelectedTicket.ID);
 
-                Database.ModifyData("DELETE FROM TicketType WHERE Name = @Name", paramName);
+                Database.ModifyData("DELETE FROM Ticket WHERE ID = @Name", paramName);
 
             }
             catch (Exception e)
@@ -212,6 +212,7 @@ namespace FestivalLib.Model
         }
         public static void EditTicket(Ticket tick)
         {
+
             try
             {
                 //band gedeelte
@@ -219,7 +220,7 @@ namespace FestivalLib.Model
 
                 DbParameter par1 = Database.AddParameter("@name", tick.Ticketholder);
                 DbParameter par2 = Database.AddParameter("@email", tick.TicketholderEmail);
-                DbParameter par3 = Database.AddParameter("@type", tick.tickettype);
+                DbParameter par3 = Database.AddParameter("@type", tick.tickettype.ID);
                 DbParameter par4 = Database.AddParameter("@amount", tick.Amount);
                 DbParameter parID = Database.AddParameter("@ID", Convert.ToInt16(tick.ID));
 

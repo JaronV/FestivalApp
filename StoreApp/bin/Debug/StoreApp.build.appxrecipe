@@ -53,17 +53,23 @@
     <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\App.xaml">
       <PackagePath>App.xaml</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\BandDetail.xaml">
+      <PackagePath>BandDetail.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\BandsPerGenre.xaml">
+      <PackagePath>BandsPerGenre.xaml</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\Common\StandardStyles.xaml">
       <PackagePath>Common\StandardStyles.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\GroupedItemsPage.xaml">
-      <PackagePath>GroupedItemsPage.xaml</PackagePath>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\Genres.xaml">
+      <PackagePath>Genres.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\GroupDetailPage.xaml">
-      <PackagePath>GroupDetailPage.xaml</PackagePath>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\ItemsPage.xaml">
+      <PackagePath>ItemsPage.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\ItemDetailPage.xaml">
-      <PackagePath>ItemDetailPage.xaml</PackagePath>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\LineUp.xaml">
+      <PackagePath>LineUp.xaml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>

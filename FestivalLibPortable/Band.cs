@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -11,9 +12,9 @@ namespace FestivalLibPortable
     {
         #region field en prop
 
-        private string _id;
+        private int _id;
 
-        public string ID
+        public int ID
         {
             get { return _id; }
             set { _id = value; }
@@ -59,9 +60,9 @@ namespace FestivalLibPortable
             set { _facebook = value; }
         }
 
-        private List<Genre> _genres;
+        private IEnumerable<Genre> _genres;
 
-        public List<Genre> Genres
+        public IEnumerable<Genre> Genres
         {
             get { return _genres; }
             set { _genres = value; }

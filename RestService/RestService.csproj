@@ -164,13 +164,19 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\BandController.cs" />
+    <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LineUpController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Database.cs" />
     <Compile Include="Models\_DAL\BandRepository.cs" />
+    <Compile Include="Models\_DAL\FestivalRepository.cs" />
+    <Compile Include="Models\_DAL\GenreRepository.cs" />
+    <Compile Include="Models\_DAL\LineUpRepository.cs" />
+    <Compile Include="Models\_DAL\StageRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

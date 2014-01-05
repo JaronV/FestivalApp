@@ -16,25 +16,25 @@
     <AppXManifest Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-12-30T14:03:09.789</Modified>
+      <Modified>2014-01-04T21:07:38.604</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\StoreApp.exe">
       <PackagePath>StoreApp.exe</PackagePath>
-      <Modified>2013-12-30T14:31:58.793</Modified>
+      <Modified>2014-01-04T21:40:23.669</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\StoreApp.pdb">
       <PackagePath>StoreApp.pdb</PackagePath>
-      <Modified>2013-12-30T14:31:58.769</Modified>
+      <Modified>2014-01-04T21:40:23.644</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLibPortable\bin\Debug\FestivalLibPortable.dll">
       <PackagePath>FestivalLibPortable.dll</PackagePath>
-      <Modified>2013-12-30T14:03:07.587</Modified>
+      <Modified>2014-01-04T21:08:16.385</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLibPortable\bin\Debug\FestivalLibPortable.pdb">
       <PackagePath>FestivalLibPortable.pdb</PackagePath>
-      <Modified>2013-12-30T14:03:07.564</Modified>
+      <Modified>2014-01-04T21:08:16.364</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\Assets\Logo.png">
       <PackagePath>Assets\Logo.png</PackagePath>
@@ -72,25 +72,33 @@
       <PackagePath>App.xaml</PackagePath>
       <Modified>2013-12-30T13:42:12.717</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\BandDetail.xaml">
+      <PackagePath>BandDetail.xaml</PackagePath>
+      <Modified>2014-01-04T21:40:20.672</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\BandsPerGenre.xaml">
+      <PackagePath>BandsPerGenre.xaml</PackagePath>
+      <Modified>2014-01-04T19:37:27.746</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\Common\StandardStyles.xaml">
       <PackagePath>Common\StandardStyles.xaml</PackagePath>
       <Modified>2012-06-26T15:19:20.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\GroupedItemsPage.xaml">
-      <PackagePath>GroupedItemsPage.xaml</PackagePath>
-      <Modified>2013-12-30T14:30:32.485</Modified>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\Genres.xaml">
+      <PackagePath>Genres.xaml</PackagePath>
+      <Modified>2014-01-04T20:15:16.350</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\GroupDetailPage.xaml">
-      <PackagePath>GroupDetailPage.xaml</PackagePath>
-      <Modified>2013-12-30T13:42:12.774</Modified>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\ItemsPage.xaml">
+      <PackagePath>ItemsPage.xaml</PackagePath>
+      <Modified>2014-01-04T20:55:28.914</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\ItemDetailPage.xaml">
-      <PackagePath>ItemDetailPage.xaml</PackagePath>
-      <Modified>2013-12-30T13:42:12.788</Modified>
+    <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\LineUp.xaml">
+      <PackagePath>LineUp.xaml</PackagePath>
+      <Modified>2014-01-04T21:37:17.321</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\StoreApp\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2013-12-30T13:42:16.885</Modified>
+      <Modified>2014-01-04T20:13:13.995</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

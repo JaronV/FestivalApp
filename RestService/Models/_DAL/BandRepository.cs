@@ -16,13 +16,13 @@ namespace RestService.Models._DAL
         {
 
             Band band = new Band();
-            band.ID = Convert.ToString(reader["ID"]);
+            band.ID = Convert.ToInt32(reader["ID"].ToString());
             band.Name = Convert.ToString(reader["Name"]);
             band.Picture = (byte[])reader["Picture"];
             band.Descr = Convert.ToString(reader["Description"]);
             band.Twitter = Convert.ToString(reader["Twitter"]);
             band.Facebook = Convert.ToString(reader["Facebook"]);
-            //band.Genres = Genre.GetGenresByBandID(Convert.ToInt32(reader["band_id"]));
+            band.Genres = GenreRepository.GetGenresByID (Convert.ToInt32(reader["ID"]));
             return band;
         }
 
@@ -48,6 +48,20 @@ namespace RestService.Models._DAL
                 gevondenBand = CreateBand(reader);
             }            
             return gevondenBand;
+        }
+
+        public static  List<Band> GetBandByGenre(int id)
+        {
+            
+            List<Band> lstbands = new List<Band>();
+            string sql = "select ID,Name,Picture,Description,Twitter,Facebook from Bands_Genre inner join Bands on Bands_Genre.BandID = Bands.ID where GenreID=@ID";
+            DbParameter parID = Database.AddParameter("@ID", id);
+            DbDataReader reader = Database.GetData(sql, parID);
+            while (reader.Read())
+            {
+               lstbands.Add(CreateBand(reader));
+            }
+            return lstbands;
         }
     }
 }

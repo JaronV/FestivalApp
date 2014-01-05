@@ -97,7 +97,7 @@ namespace FestivalApp.ViewModel
         }
 
         #endregion
-
+        #region commands
         public ICommand AddBandCommand
         {
             get
@@ -144,8 +144,16 @@ namespace FestivalApp.ViewModel
         {
             get { return new RelayCommand(EditBand); }
         }
+        #endregion
 
-       
+        private bool SaveValidBand()
+        {
+            if (SelectedBand != null)
+            {
+                return SelectedBand.IsValid();
+            }
+            else return false;
+        }
         private void setImage()
         {
             Microsoft.Win32.OpenFileDialog ofd = new Microsoft.Win32.OpenFileDialog();
@@ -172,19 +180,60 @@ namespace FestivalApp.ViewModel
 
         private void SaveBand()
         {
-            Band.AddType(SelectedBand, Huidigegenres);
-            Bands = Band.getBands();
+            if (SaveValidBand())
+            {
+                Band.AddType(SelectedBand, Huidigegenres);
+                Bands = Band.getBands();
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Zijn alle velden correct aangevuld");
+            }
         }
 
         private void DeleteBand()
         {
-            Band.DeleteType(SelectedBand);
-            Bands.Remove(SelectedBand);
+            if (SelectedBand != null)
+            {
+                if (SelectedBand.ID != 0)
+                {
+                    Band.DeleteBandFromLineUp(SelectedBand.ID);
+                    Band.DeleteType(SelectedBand);
+                    Bands.Remove(SelectedBand);
+
+                  
+           
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("dit is een ongeldige actie");
+                }
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Gelieve eerst een Item te selecteren");
+            }
            
         }
         private void EditBand()
         {
-            Band.EditBand(band, Huidigegenres);
+            if (SelectedBand != null)
+            {
+                if (SelectedBand.ID != 0)
+                {
+                    Band.EditBand(band, Huidigegenres);
+
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("dit is een ongeldige actie");
+                }
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Gelieve eerst een Item te selecteren");
+            }
+           
         }
  
         private void VoegGenreToe()

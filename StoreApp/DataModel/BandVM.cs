@@ -51,7 +51,8 @@ namespace StoreApp.DataModel
                 //DataContractJsonSerializer(typeof(List<FestivalLibPort.Band>));
                 //Bands = djs.ReadObject(stream) as List<FestivalLibPort.Band>; 
                 DataContractSerializer dxml = new DataContractSerializer(typeof(List<FestivalLibPortable.Band>));
-                Bands = dxml.ReadObject(stream) as List<FestivalLibPortable.Band>;      
+                Bands = dxml.ReadObject(stream) as List<FestivalLibPortable.Band>;
+                stream.Dispose();
             }            
         }
 
@@ -67,17 +68,17 @@ namespace StoreApp.DataModel
             {
                 Stream stream = await response.Content.ReadAsStreamAsync();
                 ObservableCollection<Band> lst = new ObservableCollection<Band>();
-                //DataContractJsonSerializer djs = new
-                //DataContractJsonSerializer(typeof(List<FestivalLibPort.Band>));
-                //Bands = djs.ReadObject(stream) as List<FestivalLibPort.Band>; 
                 DataContractSerializer dxml = new DataContractSerializer(typeof(ObservableCollection<FestivalLibPortable.Band>));
                 lst = dxml.ReadObject(stream) as ObservableCollection<FestivalLibPortable.Band>;
+                
                 return lst;
+                
             }
 
             return null;
         }
 
+      
         public static Band GetBandAsync2(string selectedBand)
         {
             Band gevondenBand = new Band();
@@ -86,14 +87,16 @@ namespace StoreApp.DataModel
             return gevondenBand;
         }
 
-        public static async Task<Band> GetBandAsync(string selectedBand)
-        {
-            ObservableCollection<Band> lst = await GetBandsAsync();
-            Band gevondenband = new Band();
-            gevondenband = lst.Single(item => item.ID == selectedBand);
+        //public static async Task<Band> GetBandAsync(string selectedBand)
+        //{
+        //    ObservableCollection<Band> lst = await GetBandsAsync();
+        //    Band gevondenband = new Band();
+        //    gevondenband = lst.Single(item => item.ID == selectedBand);
 
-            return gevondenband ;
-        }
+        //    return gevondenband;
+        //}
+
+
 
        
     }

@@ -1,3 +1,8 @@
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLib\bin\Debug\FestivalLib.exe.config
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLib\bin\Debug\FestivalLib.exe
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLib\bin\Debug\FestivalLib.pdb
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLib\bin\Debug\DBHelper.dll
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLib\obj\Debug\FestivalLib.csprojResolveAssemblyReference.cache
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLib\obj\Debug\MainWindow.baml
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLib\obj\Debug\MainWindow.g.cs
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLib\obj\Debug\App.g.cs
@@ -5,10 +10,5 @@ C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\F
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLib\obj\Debug\FestivalLib.g.resources
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLib\obj\Debug\FestivalLib.Properties.Resources.resources
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLib\obj\Debug\FestivalLib.csproj.GenerateResource.Cache
-C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLib\bin\Debug\FestivalLib.exe.config
-C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLib\bin\Debug\FestivalLib.exe
-C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLib\bin\Debug\FestivalLib.pdb
-C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLib\bin\Debug\DBHelper.dll
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLib\obj\Debug\FestivalLib.exe
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLib\obj\Debug\FestivalLib.pdb
-C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\FestivalLib\obj\Debug\FestivalLib.csprojResolveAssemblyReference.cache

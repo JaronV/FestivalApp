@@ -1,7 +1,9 @@
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\RestService\bin\RestService.dll
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\RestService\bin\RestService.pdb
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\RestService\bin\Antlr3.Runtime.dll
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\RestService\bin\DBHelper.dll
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\RestService\bin\EntityFramework.dll
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\RestService\bin\FestivalLibPortable.dll
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\RestService\bin\Microsoft.Data.Edm.dll
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\RestService\bin\Microsoft.Data.OData.dll
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\RestService\bin\Microsoft.Web.Infrastructure.dll
@@ -22,6 +24,7 @@ C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\R
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\RestService\bin\System.Web.WebPages.dll
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\RestService\bin\System.Web.WebPages.Razor.dll
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\RestService\bin\WebGrease.dll
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\RestService\bin\FestivalLibPortable.pdb
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\RestService\bin\EntityFramework.xml
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\RestService\bin\Newtonsoft.Json.xml
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\RestService\bin\System.Net.Http.Formatting.xml
@@ -68,6 +71,3 @@ C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\R
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\RestService\obj\Debug\RestService.csprojResolveAssemblyReference.cache
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\RestService\obj\Debug\RestService.dll
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\RestService\obj\Debug\RestService.pdb
-C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\RestService\bin\DBHelper.dll
-C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\RestService\bin\FestivalLibPortable.dll
-C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\RestService\bin\FestivalLibPortable.pdb

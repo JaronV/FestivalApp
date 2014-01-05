@@ -13,8 +13,10 @@ namespace RestService.Controllers
         // GET api/band
         public IEnumerable<Band> Get()
         {
-            //return new string[] { "value1", "value2" }
+            
+            
             return Models._DAL.BandRepository.GetBands();
+     
         }
 
         // GET api/band/5

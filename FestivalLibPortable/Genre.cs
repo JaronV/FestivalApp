@@ -9,9 +9,9 @@ namespace FestivalLibPortable
     {
         #region field en properties
 
-        private string _id;
+        private int _id;
 
-        public string ID
+        public int ID
         {
             get { return _id; }
             set { _id = value; }

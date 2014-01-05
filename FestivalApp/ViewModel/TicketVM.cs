@@ -36,6 +36,7 @@ namespace FestivalApp.ViewModel
            
         }
         #region tickettype gedeelte
+        #region fields
         private ObservableCollection<TicketType> _tickettypes = new ObservableCollection<TicketType>();
 
         private TicketType _selectedType;
@@ -51,7 +52,7 @@ namespace FestivalApp.ViewModel
             get { return _tickettypes; }
             set { _tickettypes = value; OnPropertyChanged("Tickettypes"); }
         }
-
+        #endregion
         //Tickettype commands
         public ICommand AddTickettypeCommand
         {
@@ -74,7 +75,15 @@ namespace FestivalApp.ViewModel
                 return new RelayCommand(DeleteTickettype);
             }
         }
+        public ICommand EditTicketTypeCommand
+        {
+            get
+            {
+                return new RelayCommand(EditTicketType);
+            }
+        }
 
+       
         //Tickettype methods
         public void AddTickettype()
         {
@@ -86,16 +95,59 @@ namespace FestivalApp.ViewModel
         }
         public void SaveTickettype()
         {
-            TicketType.AddType(SelectedTicketType);
+            if (SaveValidTicketType())
+            {
+                TicketType.AddType(SelectedTicketType);
+                Tickettypes = TicketType.GetTicketType();
+            }
+            else
+            {
+                MessageBox.Show("Zijn alle velden correct aangevuld");
+            }
         }
         public void DeleteTickettype()
         {
-            TicketType.DeleteType(SelectedTicketType);
-            Tickettypes.Remove(SelectedTicketType);
+            if (SelectedTicketType != null)
+            {
+                if (SelectedTicketType.ID != 0)
+                {
+                    TicketType.DeleteType(SelectedTicketType);
+                    Tickettypes.Remove(SelectedTicketType);
+                    Tickettypes = TicketType.GetTicketType();
+                }
+                else
+                {
+                    MessageBox.Show("dit is een ongeldige actie");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Gelieve eerst een Item te selecteren");
+            }
+        }
+        private void EditTicketType()
+        {
+            if (SelectedTicketType != null)
+            {
+
+                if (SelectedTicketType.ID != 0)
+                {
+                    TicketType.EditTicket(SelectedTicketType);
+                }
+                else
+                {
+                    MessageBox.Show("dit is een ongeldige actie");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Gelieve eerst een Item te selecteren");
+            }
         }
         #endregion
 
         #region Ticketgedeelte
+        #region fields
         private ObservableCollection<DateTime> _uniekeDagen;
 
         public ObservableCollection<DateTime> UniekeDagen
@@ -118,7 +170,7 @@ namespace FestivalApp.ViewModel
             get { return _selectedTicket; }
             set { _selectedTicket = value; OnPropertyChanged("SelectedTicket"); }
         }
-
+        #endregion
 
         //ticket Commands
         public ICommand AddTicketCommand
@@ -149,18 +201,7 @@ namespace FestivalApp.ViewModel
                 return new RelayCommand(EditTicket);
             }
         }
-        public ICommand EditTicketTypeCommand
-        {
-            get
-            {
-                return new RelayCommand(EditTicketType);
-            }
-        }
-
-        private void EditTicketType()
-        {
-            TicketType.EditTicket(SelectedTicketType);
-        }
+       
         private void AddTicket()
         {
             FestivalLib.Model.Ticket nieuw = new FestivalLib.Model.Ticket();
@@ -182,12 +223,45 @@ namespace FestivalApp.ViewModel
 
         private void DeleteTicket()
         {
-            FestivalLib.Model.Ticket.DeleteType(SelectedTicket);
-            Tickets.Remove(SelectedTicket);
+            if (SelectedTicket != null)
+            {
+                if (SelectedTicket.ID != 0)
+                {
+                    FestivalLib.Model.Ticket.DeleteType(SelectedTicket);
+                    Tickets.Remove(SelectedTicket);
+                    Tickets = FestivalLib.Model.Ticket.GetTickets();
+                }
+                else
+                {
+                    MessageBox.Show("dit is een ongeldige actie");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Gelieve eerst een Item te selecteren");
+            }
+           
         }
         private void EditTicket()
         {
-            FestivalLib.Model.Ticket.EditTicket(SelectedTicket);
+                if (SelectedTicket != null)
+                {
+                    if (SelectedTicket.ID != 0)
+                    {
+                        FestivalLib.Model.Ticket.EditTicket(SelectedTicket);
+                    }
+                    else
+                    {
+                        MessageBox.Show("dit is een ongeldige actie");
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Gelieve eerst een Item te selecteren");
+                }
+          
         }
         #endregion
         private bool SaveValidTicket()
@@ -198,6 +272,7 @@ namespace FestivalApp.ViewModel
             }
             else return false;
         }
+
 
         private bool SaveValidTicketType()
         {
@@ -214,15 +289,32 @@ namespace FestivalApp.ViewModel
 
         private void PrintTicket()
         {
-            FestivalLib.Model.Ticket ticket = SelectedTicket;
-            Festival festival = Festival.GetData();
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            DialogResult result = fbd.ShowDialog();
-            if (result == DialogResult.OK)
+            if (SelectedTicket != null)
             {
-                string sPad = fbd.SelectedPath;
-                FestivalLib.Model.Ticket.PrintWord(ticket, festival, sPad);
+                if (SelectedTicket.ID != 0)
+                {
+                    FestivalLib.Model.Ticket ticket = SelectedTicket;
+                    Festival festival = Festival.GetData();
+                    FolderBrowserDialog fbd = new FolderBrowserDialog();
+                    DialogResult result = fbd.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        string sPad = fbd.SelectedPath;
+                        FestivalLib.Model.Ticket.PrintWord(ticket, festival, sPad);
+                    } 
+                }
+                else
+                {
+                    MessageBox.Show("dit is een ongeldige actie");
+                }
+
             }
+            else
+            {
+                MessageBox.Show("Gelieve eerst een Item te selecteren");
+            }
+            
+           
         }
     }
 }

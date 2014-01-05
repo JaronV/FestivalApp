@@ -8,6 +8,7 @@ C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\S
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\SSA_Festival\bin\DotNetOpenAuth.OpenId.dll
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\SSA_Festival\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\SSA_Festival\bin\EntityFramework.dll
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\SSA_Festival\bin\FestivalLib.exe
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\SSA_Festival\bin\Microsoft.Data.Edm.dll
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\SSA_Festival\bin\Microsoft.Data.OData.dll
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\SSA_Festival\bin\Microsoft.Web.Infrastructure.dll
@@ -29,6 +30,7 @@ C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\S
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\SSA_Festival\bin\WebGrease.dll
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\SSA_Festival\bin\WebMatrix.Data.dll
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\SSA_Festival\bin\WebMatrix.WebData.dll
+C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\SSA_Festival\bin\FestivalLib.pdb
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\SSA_Festival\bin\EntityFramework.xml
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\SSA_Festival\bin\Newtonsoft.Json.xml
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\SSA_Festival\bin\System.Net.Http.Formatting.xml
@@ -83,5 +85,3 @@ C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\S
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\SSA_Festival\obj\Debug\SSA_Festival.csprojResolveAssemblyReference.cache
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\SSA_Festival\obj\Debug\SSA_Festival.dll
 C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\SSA_Festival\obj\Debug\SSA_Festival.pdb
-C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\SSA_Festival\bin\FestivalLib.exe
-C:\Users\jerry_000\Dropbox\2NMCT4\S1\Business applications\Project\FestivalApp\SSA_Festival\bin\FestivalLib.pdb

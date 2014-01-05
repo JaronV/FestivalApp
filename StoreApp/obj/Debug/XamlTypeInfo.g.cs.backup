@@ -112,15 +112,105 @@ namespace StoreApp.StoreApp_XamlTypeInfo
             }
         }
 
-        private object Activate_0_LayoutAwarePage() { return new global::StoreApp.Common.LayoutAwarePage(); }
+        private object Activate_0_ByteToImageConverter() { return new global::StoreApp.DataModel.ByteToImageConverter(); }
 
-        private object Activate_1_GroupedItemsPage() { return new global::StoreApp.GroupedItemsPage(); }
+        private object Activate_1_BandDetail() { return new global::StoreApp.BandDetail(); }
 
-        private object Activate_2_GroupDetailPage() { return new global::StoreApp.GroupDetailPage(); }
+        private object Activate_2_Band() { return new global::FestivalLibPortable.Band(); }
 
-        private object Activate_3_RichTextColumns() { return new global::StoreApp.Common.RichTextColumns(); }
+        private object Activate_3_ObservableObject() { return new global::FestivalLibPortable.ObservableObject(); }
 
-        private object Activate_4_ItemDetailPage() { return new global::StoreApp.ItemDetailPage(); }
+        private object Activate_4_BandsPerGenre() { return new global::StoreApp.BandsPerGenre(); }
+
+        private object Activate_5_List() { return new global::System.Collections.Generic.List<global::FestivalLibPortable.Band>(); }
+
+        private object Activate_11_GenreVM() { return new global::StoreApp.DataModel.GenreVM(); }
+
+        private object Activate_12_List() { return new global::System.Collections.Generic.List<global::FestivalLibPortable.Genre>(); }
+
+        private object Activate_13_Genre() { return new global::FestivalLibPortable.Genre(); }
+
+        private object Activate_14_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::FestivalLibPortable.Genre>(); }
+
+        private object Activate_15_Collection() { return new global::System.Collections.ObjectModel.Collection<global::FestivalLibPortable.Genre>(); }
+
+        private object Activate_16_Genres() { return new global::StoreApp.Genres(); }
+
+        private object Activate_17_BandVM() { return new global::StoreApp.DataModel.BandVM(); }
+
+        private object Activate_18_ItemsPage() { return new global::StoreApp.ItemsPage(); }
+
+        private object Activate_19_LineUpVM() { return new global::StoreApp.DataModel.LineUpVM(); }
+
+        private object Activate_20_List() { return new global::System.Collections.Generic.List<System.Collections.Generic.List<global::FestivalLibPortable.Stage>>(); }
+
+        private object Activate_21_List() { return new global::System.Collections.Generic.List<global::FestivalLibPortable.Stage>(); }
+
+        private object Activate_22_Stage() { return new global::FestivalLibPortable.Stage(); }
+
+        private object Activate_25_LineUp() { return new global::FestivalLibPortable.LineUp(); }
+
+        private object Activate_26_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::FestivalLibPortable.Stage>(); }
+
+        private object Activate_27_Collection() { return new global::System.Collections.ObjectModel.Collection<global::FestivalLibPortable.Stage>(); }
+
+        private object Activate_28_LineUp() { return new global::StoreApp.LineUp(); }
+
+        private void VectorAdd_5_List(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::FestivalLibPortable.Band>)instance;
+            var newItem = (global::FestivalLibPortable.Band)item;
+            collection.Add(newItem);
+        }
+
+        private void VectorAdd_12_List(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::FestivalLibPortable.Genre>)instance;
+            var newItem = (global::FestivalLibPortable.Genre)item;
+            collection.Add(newItem);
+        }
+
+        private void VectorAdd_14_ObservableCollection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::FestivalLibPortable.Genre>)instance;
+            var newItem = (global::FestivalLibPortable.Genre)item;
+            collection.Add(newItem);
+        }
+
+        private void VectorAdd_15_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::FestivalLibPortable.Genre>)instance;
+            var newItem = (global::FestivalLibPortable.Genre)item;
+            collection.Add(newItem);
+        }
+
+        private void VectorAdd_20_List(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::System.Collections.Generic.List<global::FestivalLibPortable.Stage>>)instance;
+            var newItem = (global::System.Collections.Generic.List<global::FestivalLibPortable.Stage>)item;
+            collection.Add(newItem);
+        }
+
+        private void VectorAdd_21_List(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::FestivalLibPortable.Stage>)instance;
+            var newItem = (global::FestivalLibPortable.Stage)item;
+            collection.Add(newItem);
+        }
+
+        private void VectorAdd_26_ObservableCollection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::FestivalLibPortable.Stage>)instance;
+            var newItem = (global::FestivalLibPortable.Stage)item;
+            collection.Add(newItem);
+        }
+
+        private void VectorAdd_27_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::FestivalLibPortable.Stage>)instance;
+            var newItem = (global::FestivalLibPortable.Stage)item;
+            collection.Add(newItem);
+        }
 
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(string typeName)
@@ -130,6 +220,10 @@ namespace StoreApp.StoreApp_XamlTypeInfo
 
             switch (typeName)
             {
+            case "Object":
+                xamlType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::System.Object));
+                break;
+
             case "Windows.UI.Xaml.Controls.Page":
                 xamlType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.Page));
                 break;
@@ -138,48 +232,278 @@ namespace StoreApp.StoreApp_XamlTypeInfo
                 xamlType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.UserControl));
                 break;
 
-            case "Windows.UI.Xaml.Controls.Panel":
-                xamlType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.Panel));
+            case "Int32":
+                xamlType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::System.Int32));
                 break;
 
-            case "Windows.UI.Xaml.Controls.RichTextBlock":
-                xamlType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.RichTextBlock));
+            case "String":
+                xamlType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::System.String));
                 break;
 
-            case "Windows.UI.Xaml.DataTemplate":
-                xamlType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.DataTemplate));
-                break;
-
-            case "StoreApp.Common.LayoutAwarePage":
-                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::StoreApp.Common.LayoutAwarePage), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_LayoutAwarePage;
+            case "StoreApp.DataModel.ByteToImageConverter":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::StoreApp.DataModel.ByteToImageConverter), GetXamlTypeByName("Object"));
+                userType.Activator = Activate_0_ByteToImageConverter;
                 xamlType = userType;
                 break;
 
-            case "StoreApp.GroupedItemsPage":
-                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::StoreApp.GroupedItemsPage), GetXamlTypeByName("StoreApp.Common.LayoutAwarePage"));
-                userType.Activator = Activate_1_GroupedItemsPage;
+            case "StoreApp.BandDetail":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::StoreApp.BandDetail), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_1_BandDetail;
+                userType.AddMemberName("Band");
                 xamlType = userType;
                 break;
 
-            case "StoreApp.GroupDetailPage":
-                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::StoreApp.GroupDetailPage), GetXamlTypeByName("StoreApp.Common.LayoutAwarePage"));
-                userType.Activator = Activate_2_GroupDetailPage;
+            case "FestivalLibPortable.Band":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::FestivalLibPortable.Band), GetXamlTypeByName("FestivalLibPortable.ObservableObject"));
+                userType.Activator = Activate_2_Band;
+                userType.AddMemberName("ID");
+                AddToMapOfTypeToStandardName(typeof(global::System.Int32),
+                                                   "Int32");
+                userType.AddMemberName("Name");
+                AddToMapOfTypeToStandardName(typeof(global::System.String),
+                                                   "String");
+                userType.AddMemberName("Picture");
+                AddToMapOfTypeToStandardName(typeof(global::System.Byte[]),
+                                                   "Byte[]");
+                userType.AddMemberName("Descr");
+                AddToMapOfTypeToStandardName(typeof(global::System.String),
+                                                   "String");
+                userType.AddMemberName("Twitter");
+                AddToMapOfTypeToStandardName(typeof(global::System.String),
+                                                   "String");
+                userType.AddMemberName("Facebook");
+                AddToMapOfTypeToStandardName(typeof(global::System.String),
+                                                   "String");
+                userType.AddMemberName("Genres");
+                AddToMapOfTypeToStandardName(typeof(global::System.Collections.Generic.IEnumerable<global::FestivalLibPortable.Genre>),
+                                                   "System.Collections.Generic.IEnumerable<FestivalLibPortable.Genre>");
                 xamlType = userType;
                 break;
 
-            case "StoreApp.Common.RichTextColumns":
-                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::StoreApp.Common.RichTextColumns), GetXamlTypeByName("Windows.UI.Xaml.Controls.Panel"));
-                userType.Activator = Activate_3_RichTextColumns;
-                userType.SetContentPropertyName("StoreApp.Common.RichTextColumns.RichTextContent");
-                userType.AddMemberName("RichTextContent");
-                userType.AddMemberName("ColumnTemplate");
+            case "FestivalLibPortable.ObservableObject":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::FestivalLibPortable.ObservableObject), GetXamlTypeByName("Object"));
+                userType.Activator = Activate_3_ObservableObject;
                 xamlType = userType;
                 break;
 
-            case "StoreApp.ItemDetailPage":
-                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::StoreApp.ItemDetailPage), GetXamlTypeByName("StoreApp.Common.LayoutAwarePage"));
-                userType.Activator = Activate_4_ItemDetailPage;
+            case "StoreApp.BandsPerGenre":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::StoreApp.BandsPerGenre), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_4_BandsPerGenre;
+                userType.AddMemberName("Bands");
+                AddToMapOfTypeToStandardName(typeof(global::System.Collections.Generic.List<global::FestivalLibPortable.Band>),
+                                                   "System.Collections.Generic.List<FestivalLibPortable.Band>");
+                xamlType = userType;
+                break;
+
+            case "System.Collections.Generic.List<FestivalLibPortable.Band>":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::System.Collections.Generic.List<global::FestivalLibPortable.Band>), GetXamlTypeByName("Object"));
+                AddToMapOfTypeToStandardName(typeof(global::System.Collections.Generic.List<global::FestivalLibPortable.Band>),
+                                                   "System.Collections.Generic.List<FestivalLibPortable.Band>");
+                userType.Activator = Activate_5_List;
+                userType.CollectionAdd = VectorAdd_5_List;
+                xamlType = userType;
+                break;
+
+            case "Byte[]":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::System.Byte[]), GetXamlTypeByName("System.Array"));
+                AddToMapOfTypeToStandardName(typeof(global::System.Byte[]),
+                                                   "Byte[]");
+                xamlType = userType;
+                break;
+
+            case "System.Array":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::System.Array), GetXamlTypeByName("Object"));
+                xamlType = userType;
+                break;
+
+            case "Byte":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::System.Byte), GetXamlTypeByName("System.ValueType"));
+                AddToMapOfTypeToStandardName(typeof(global::System.Byte),
+                                                   "Byte");
+                xamlType = userType;
+                break;
+
+            case "System.ValueType":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::System.ValueType), GetXamlTypeByName("Object"));
+                xamlType = userType;
+                break;
+
+            case "System.Collections.Generic.IEnumerable<FestivalLibPortable.Genre>":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::System.Collections.Generic.IEnumerable<global::FestivalLibPortable.Genre>), null);
+                AddToMapOfTypeToStandardName(typeof(global::System.Collections.Generic.IEnumerable<global::FestivalLibPortable.Genre>),
+                                                   "System.Collections.Generic.IEnumerable<FestivalLibPortable.Genre>");
+                xamlType = userType;
+                break;
+
+            case "StoreApp.DataModel.GenreVM":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::StoreApp.DataModel.GenreVM), GetXamlTypeByName("FestivalLibPortable.ObservableObject"));
+                userType.Activator = Activate_11_GenreVM;
+                userType.AddMemberName("Genres");
+                AddToMapOfTypeToStandardName(typeof(global::System.Collections.Generic.List<global::FestivalLibPortable.Genre>),
+                                                   "System.Collections.Generic.List<FestivalLibPortable.Genre>");
+                userType.AddMemberName("NieuweGenres");
+                AddToMapOfTypeToStandardName(typeof(global::System.Collections.ObjectModel.ObservableCollection<global::FestivalLibPortable.Genre>),
+                                                   "System.Collections.ObjectModel.ObservableCollection<FestivalLibPortable.Genre>");
+                xamlType = userType;
+                break;
+
+            case "System.Collections.Generic.List<FestivalLibPortable.Genre>":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::System.Collections.Generic.List<global::FestivalLibPortable.Genre>), GetXamlTypeByName("Object"));
+                AddToMapOfTypeToStandardName(typeof(global::System.Collections.Generic.List<global::FestivalLibPortable.Genre>),
+                                                   "System.Collections.Generic.List<FestivalLibPortable.Genre>");
+                userType.Activator = Activate_12_List;
+                userType.CollectionAdd = VectorAdd_12_List;
+                xamlType = userType;
+                break;
+
+            case "FestivalLibPortable.Genre":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::FestivalLibPortable.Genre), GetXamlTypeByName("Object"));
+                userType.Activator = Activate_13_Genre;
+                userType.AddMemberName("ID");
+                AddToMapOfTypeToStandardName(typeof(global::System.Int32),
+                                                   "Int32");
+                userType.AddMemberName("Name");
+                AddToMapOfTypeToStandardName(typeof(global::System.String),
+                                                   "String");
+                xamlType = userType;
+                break;
+
+            case "System.Collections.ObjectModel.ObservableCollection<FestivalLibPortable.Genre>":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::System.Collections.ObjectModel.ObservableCollection<global::FestivalLibPortable.Genre>), GetXamlTypeByName("System.Collections.ObjectModel.Collection<FestivalLibPortable.Genre>"));
+                AddToMapOfTypeToStandardName(typeof(global::System.Collections.ObjectModel.ObservableCollection<global::FestivalLibPortable.Genre>),
+                                                   "System.Collections.ObjectModel.ObservableCollection<FestivalLibPortable.Genre>");
+                userType.Activator = Activate_14_ObservableCollection;
+                userType.CollectionAdd = VectorAdd_14_ObservableCollection;
+                xamlType = userType;
+                break;
+
+            case "System.Collections.ObjectModel.Collection<FestivalLibPortable.Genre>":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::System.Collections.ObjectModel.Collection<global::FestivalLibPortable.Genre>), GetXamlTypeByName("Object"));
+                AddToMapOfTypeToStandardName(typeof(global::System.Collections.ObjectModel.Collection<global::FestivalLibPortable.Genre>),
+                                                   "System.Collections.ObjectModel.Collection<FestivalLibPortable.Genre>");
+                userType.Activator = Activate_15_Collection;
+                userType.CollectionAdd = VectorAdd_15_Collection;
+                xamlType = userType;
+                break;
+
+            case "StoreApp.Genres":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::StoreApp.Genres), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_16_Genres;
+                xamlType = userType;
+                break;
+
+            case "StoreApp.DataModel.BandVM":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::StoreApp.DataModel.BandVM), GetXamlTypeByName("FestivalLibPortable.ObservableObject"));
+                userType.Activator = Activate_17_BandVM;
+                userType.AddMemberName("Bands");
+                AddToMapOfTypeToStandardName(typeof(global::System.Collections.Generic.List<global::FestivalLibPortable.Band>),
+                                                   "System.Collections.Generic.List<FestivalLibPortable.Band>");
+                userType.AddMemberName("SelectedBand");
+                userType.AddMemberName("BandAsync2");
+                xamlType = userType;
+                break;
+
+            case "StoreApp.ItemsPage":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::StoreApp.ItemsPage), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_18_ItemsPage;
+                xamlType = userType;
+                break;
+
+            case "StoreApp.DataModel.LineUpVM":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::StoreApp.DataModel.LineUpVM), GetXamlTypeByName("FestivalLibPortable.ObservableObject"));
+                userType.Activator = Activate_19_LineUpVM;
+                userType.AddMemberName("Stages");
+                AddToMapOfTypeToStandardName(typeof(global::System.Collections.Generic.List<System.Collections.Generic.List<global::FestivalLibPortable.Stage>>),
+                                                   "System.Collections.Generic.List<System.Collections.Generic.List<FestivalLibPortable.Stage>>");
+                userType.AddMemberName("Name");
+                AddToMapOfTypeToStandardName(typeof(global::System.String),
+                                                   "String");
+                userType.AddMemberName("NieuweStages");
+                AddToMapOfTypeToStandardName(typeof(global::System.Collections.ObjectModel.ObservableCollection<global::FestivalLibPortable.Stage>),
+                                                   "System.Collections.ObjectModel.ObservableCollection<FestivalLibPortable.Stage>");
+                xamlType = userType;
+                break;
+
+            case "System.Collections.Generic.List<System.Collections.Generic.List<FestivalLibPortable.Stage>>":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::System.Collections.Generic.List<System.Collections.Generic.List<global::FestivalLibPortable.Stage>>), GetXamlTypeByName("Object"));
+                AddToMapOfTypeToStandardName(typeof(global::System.Collections.Generic.List<System.Collections.Generic.List<global::FestivalLibPortable.Stage>>),
+                                                   "System.Collections.Generic.List<System.Collections.Generic.List<FestivalLibPortable.Stage>>");
+                userType.Activator = Activate_20_List;
+                userType.CollectionAdd = VectorAdd_20_List;
+                xamlType = userType;
+                break;
+
+            case "System.Collections.Generic.List<FestivalLibPortable.Stage>":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::System.Collections.Generic.List<global::FestivalLibPortable.Stage>), GetXamlTypeByName("Object"));
+                AddToMapOfTypeToStandardName(typeof(global::System.Collections.Generic.List<global::FestivalLibPortable.Stage>),
+                                                   "System.Collections.Generic.List<FestivalLibPortable.Stage>");
+                userType.Activator = Activate_21_List;
+                userType.CollectionAdd = VectorAdd_21_List;
+                userType.AddMemberName("Capacity");
+                AddToMapOfTypeToStandardName(typeof(global::System.Int32),
+                                                   "Int32");
+                userType.AddMemberName("Count");
+                AddToMapOfTypeToStandardName(typeof(global::System.Int32),
+                                                   "Int32");
+                xamlType = userType;
+                break;
+
+            case "FestivalLibPortable.Stage":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::FestivalLibPortable.Stage), GetXamlTypeByName("Object"));
+                userType.Activator = Activate_22_Stage;
+                userType.AddMemberName("ID");
+                AddToMapOfTypeToStandardName(typeof(global::System.Int32),
+                                                   "Int32");
+                userType.AddMemberName("Name");
+                AddToMapOfTypeToStandardName(typeof(global::System.String),
+                                                   "String");
+                userType.AddMemberName("Bands");
+                AddToMapOfTypeToStandardName(typeof(global::System.Collections.Generic.IEnumerable<global::FestivalLibPortable.LineUp>),
+                                                   "System.Collections.Generic.IEnumerable<FestivalLibPortable.LineUp>");
+                userType.AddMemberName("datum");
+                userType.AddMemberName("lineup");
+                xamlType = userType;
+                break;
+
+            case "System.Collections.Generic.IEnumerable<FestivalLibPortable.LineUp>":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::System.Collections.Generic.IEnumerable<global::FestivalLibPortable.LineUp>), null);
+                AddToMapOfTypeToStandardName(typeof(global::System.Collections.Generic.IEnumerable<global::FestivalLibPortable.LineUp>),
+                                                   "System.Collections.Generic.IEnumerable<FestivalLibPortable.LineUp>");
+                xamlType = userType;
+                break;
+
+            case "System.DateTime":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::System.DateTime), GetXamlTypeByName("System.ValueType"));
+                xamlType = userType;
+                break;
+
+            case "FestivalLibPortable.LineUp":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::FestivalLibPortable.LineUp), GetXamlTypeByName("Object"));
+                userType.Activator = Activate_25_LineUp;
+                xamlType = userType;
+                break;
+
+            case "System.Collections.ObjectModel.ObservableCollection<FestivalLibPortable.Stage>":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::System.Collections.ObjectModel.ObservableCollection<global::FestivalLibPortable.Stage>), GetXamlTypeByName("System.Collections.ObjectModel.Collection<FestivalLibPortable.Stage>"));
+                AddToMapOfTypeToStandardName(typeof(global::System.Collections.ObjectModel.ObservableCollection<global::FestivalLibPortable.Stage>),
+                                                   "System.Collections.ObjectModel.ObservableCollection<FestivalLibPortable.Stage>");
+                userType.Activator = Activate_26_ObservableCollection;
+                userType.CollectionAdd = VectorAdd_26_ObservableCollection;
+                xamlType = userType;
+                break;
+
+            case "System.Collections.ObjectModel.Collection<FestivalLibPortable.Stage>":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::System.Collections.ObjectModel.Collection<global::FestivalLibPortable.Stage>), GetXamlTypeByName("Object"));
+                AddToMapOfTypeToStandardName(typeof(global::System.Collections.ObjectModel.Collection<global::FestivalLibPortable.Stage>),
+                                                   "System.Collections.ObjectModel.Collection<FestivalLibPortable.Stage>");
+                userType.Activator = Activate_27_Collection;
+                userType.CollectionAdd = VectorAdd_27_Collection;
+                xamlType = userType;
+                break;
+
+            case "StoreApp.LineUp":
+                userType = new global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::StoreApp.LineUp), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_28_LineUp;
                 xamlType = userType;
                 break;
 
@@ -188,25 +512,254 @@ namespace StoreApp.StoreApp_XamlTypeInfo
         }
 
 
-        private object get_0_RichTextColumns_RichTextContent(object instance)
+        private object get_0_BandDetail_Band(object instance)
         {
-            var that = (global::StoreApp.Common.RichTextColumns)instance;
-            return that.RichTextContent;
+            var that = (global::StoreApp.BandDetail)instance;
+            return that.Band;
         }
-        private void set_0_RichTextColumns_RichTextContent(object instance, object Value)
+        private void set_0_BandDetail_Band(object instance, object Value)
         {
-            var that = (global::StoreApp.Common.RichTextColumns)instance;
-            that.RichTextContent = (global::Windows.UI.Xaml.Controls.RichTextBlock)Value;
+            var that = (global::StoreApp.BandDetail)instance;
+            that.Band = (global::FestivalLibPortable.Band)Value;
         }
-        private object get_1_RichTextColumns_ColumnTemplate(object instance)
+        private object get_1_BandsPerGenre_Bands(object instance)
         {
-            var that = (global::StoreApp.Common.RichTextColumns)instance;
-            return that.ColumnTemplate;
+            var that = (global::StoreApp.BandsPerGenre)instance;
+            return that.Bands;
         }
-        private void set_1_RichTextColumns_ColumnTemplate(object instance, object Value)
+        private void set_1_BandsPerGenre_Bands(object instance, object Value)
         {
-            var that = (global::StoreApp.Common.RichTextColumns)instance;
-            that.ColumnTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+            var that = (global::StoreApp.BandsPerGenre)instance;
+            that.Bands = (global::System.Collections.Generic.List<global::FestivalLibPortable.Band>)Value;
+        }
+        private object get_2_Band_ID(object instance)
+        {
+            var that = (global::FestivalLibPortable.Band)instance;
+            return that.ID;
+        }
+        private void set_2_Band_ID(object instance, object Value)
+        {
+            var that = (global::FestivalLibPortable.Band)instance;
+            that.ID = (global::System.Int32)Value;
+        }
+        private object get_3_Band_Name(object instance)
+        {
+            var that = (global::FestivalLibPortable.Band)instance;
+            return that.Name;
+        }
+        private void set_3_Band_Name(object instance, object Value)
+        {
+            var that = (global::FestivalLibPortable.Band)instance;
+            that.Name = (global::System.String)Value;
+        }
+        private object get_4_Band_Picture(object instance)
+        {
+            var that = (global::FestivalLibPortable.Band)instance;
+            return that.Picture;
+        }
+        private void set_4_Band_Picture(object instance, object Value)
+        {
+            var that = (global::FestivalLibPortable.Band)instance;
+            that.Picture = (global::System.Byte[])Value;
+        }
+        private object get_5_Band_Descr(object instance)
+        {
+            var that = (global::FestivalLibPortable.Band)instance;
+            return that.Descr;
+        }
+        private void set_5_Band_Descr(object instance, object Value)
+        {
+            var that = (global::FestivalLibPortable.Band)instance;
+            that.Descr = (global::System.String)Value;
+        }
+        private object get_6_Band_Twitter(object instance)
+        {
+            var that = (global::FestivalLibPortable.Band)instance;
+            return that.Twitter;
+        }
+        private void set_6_Band_Twitter(object instance, object Value)
+        {
+            var that = (global::FestivalLibPortable.Band)instance;
+            that.Twitter = (global::System.String)Value;
+        }
+        private object get_7_Band_Facebook(object instance)
+        {
+            var that = (global::FestivalLibPortable.Band)instance;
+            return that.Facebook;
+        }
+        private void set_7_Band_Facebook(object instance, object Value)
+        {
+            var that = (global::FestivalLibPortable.Band)instance;
+            that.Facebook = (global::System.String)Value;
+        }
+        private object get_8_Band_Genres(object instance)
+        {
+            var that = (global::FestivalLibPortable.Band)instance;
+            return that.Genres;
+        }
+        private void set_8_Band_Genres(object instance, object Value)
+        {
+            var that = (global::FestivalLibPortable.Band)instance;
+            that.Genres = (global::System.Collections.Generic.IEnumerable<global::FestivalLibPortable.Genre>)Value;
+        }
+        private object get_9_GenreVM_Genres(object instance)
+        {
+            var that = (global::StoreApp.DataModel.GenreVM)instance;
+            return that.Genres;
+        }
+        private void set_9_GenreVM_Genres(object instance, object Value)
+        {
+            var that = (global::StoreApp.DataModel.GenreVM)instance;
+            that.Genres = (global::System.Collections.Generic.List<global::FestivalLibPortable.Genre>)Value;
+        }
+        private object get_10_Genre_ID(object instance)
+        {
+            var that = (global::FestivalLibPortable.Genre)instance;
+            return that.ID;
+        }
+        private void set_10_Genre_ID(object instance, object Value)
+        {
+            var that = (global::FestivalLibPortable.Genre)instance;
+            that.ID = (global::System.Int32)Value;
+        }
+        private object get_11_Genre_Name(object instance)
+        {
+            var that = (global::FestivalLibPortable.Genre)instance;
+            return that.Name;
+        }
+        private void set_11_Genre_Name(object instance, object Value)
+        {
+            var that = (global::FestivalLibPortable.Genre)instance;
+            that.Name = (global::System.String)Value;
+        }
+        private object get_12_GenreVM_NieuweGenres(object instance)
+        {
+            var that = (global::StoreApp.DataModel.GenreVM)instance;
+            return that.NieuweGenres;
+        }
+        private void set_12_GenreVM_NieuweGenres(object instance, object Value)
+        {
+            var that = (global::StoreApp.DataModel.GenreVM)instance;
+            that.NieuweGenres = (global::System.Collections.ObjectModel.ObservableCollection<global::FestivalLibPortable.Genre>)Value;
+        }
+        private object get_13_BandVM_Bands(object instance)
+        {
+            var that = (global::StoreApp.DataModel.BandVM)instance;
+            return that.Bands;
+        }
+        private void set_13_BandVM_Bands(object instance, object Value)
+        {
+            var that = (global::StoreApp.DataModel.BandVM)instance;
+            that.Bands = (global::System.Collections.Generic.List<global::FestivalLibPortable.Band>)Value;
+        }
+        private object get_14_BandVM_SelectedBand(object instance)
+        {
+            var that = (global::StoreApp.DataModel.BandVM)instance;
+            return that.SelectedBand;
+        }
+        private void set_14_BandVM_SelectedBand(object instance, object Value)
+        {
+            var that = (global::StoreApp.DataModel.BandVM)instance;
+            that.SelectedBand = (global::FestivalLibPortable.Band)Value;
+        }
+        private object get_15_BandVM_BandAsync2(object instance)
+        {
+            return global::StoreApp.DataModel.BandVM.GetBandAsync2((global::System.String)instance);
+        }
+        private object get_16_LineUpVM_Stages(object instance)
+        {
+            var that = (global::StoreApp.DataModel.LineUpVM)instance;
+            return that.Stages;
+        }
+        private void set_16_LineUpVM_Stages(object instance, object Value)
+        {
+            var that = (global::StoreApp.DataModel.LineUpVM)instance;
+            that.Stages = (global::System.Collections.Generic.List<System.Collections.Generic.List<global::FestivalLibPortable.Stage>>)Value;
+        }
+        private object get_17_Stage_ID(object instance)
+        {
+            var that = (global::FestivalLibPortable.Stage)instance;
+            return that.ID;
+        }
+        private void set_17_Stage_ID(object instance, object Value)
+        {
+            var that = (global::FestivalLibPortable.Stage)instance;
+            that.ID = (global::System.Int32)Value;
+        }
+        private object get_18_Stage_Name(object instance)
+        {
+            var that = (global::FestivalLibPortable.Stage)instance;
+            return that.Name;
+        }
+        private void set_18_Stage_Name(object instance, object Value)
+        {
+            var that = (global::FestivalLibPortable.Stage)instance;
+            that.Name = (global::System.String)Value;
+        }
+        private object get_19_Stage_Bands(object instance)
+        {
+            var that = (global::FestivalLibPortable.Stage)instance;
+            return that.Bands;
+        }
+        private void set_19_Stage_Bands(object instance, object Value)
+        {
+            var that = (global::FestivalLibPortable.Stage)instance;
+            that.Bands = (global::System.Collections.Generic.IEnumerable<global::FestivalLibPortable.LineUp>)Value;
+        }
+        private object get_20_Stage_datum(object instance)
+        {
+            var that = (global::FestivalLibPortable.Stage)instance;
+            return that.datum;
+        }
+        private void set_20_Stage_datum(object instance, object Value)
+        {
+            var that = (global::FestivalLibPortable.Stage)instance;
+            that.datum = (global::System.DateTime)Value;
+        }
+        private object get_21_Stage_lineup(object instance)
+        {
+            var that = (global::FestivalLibPortable.Stage)instance;
+            return that.lineup;
+        }
+        private void set_21_Stage_lineup(object instance, object Value)
+        {
+            var that = (global::FestivalLibPortable.Stage)instance;
+            that.lineup = (global::FestivalLibPortable.LineUp)Value;
+        }
+        private object get_22_List_Capacity(object instance)
+        {
+            var that = (global::System.Collections.Generic.List<global::FestivalLibPortable.Stage>)instance;
+            return that.Capacity;
+        }
+        private void set_22_List_Capacity(object instance, object Value)
+        {
+            var that = (global::System.Collections.Generic.List<global::FestivalLibPortable.Stage>)instance;
+            that.Capacity = (global::System.Int32)Value;
+        }
+        private object get_23_List_Count(object instance)
+        {
+            var that = (global::System.Collections.Generic.List<global::FestivalLibPortable.Stage>)instance;
+            return that.Count;
+        }
+        private object get_24_LineUpVM_Name(object instance)
+        {
+            var that = (global::StoreApp.DataModel.LineUpVM)instance;
+            return that.Name;
+        }
+        private void set_24_LineUpVM_Name(object instance, object Value)
+        {
+            var that = (global::StoreApp.DataModel.LineUpVM)instance;
+            that.Name = (global::System.String)Value;
+        }
+        private object get_25_LineUpVM_NieuweStages(object instance)
+        {
+            var that = (global::StoreApp.DataModel.LineUpVM)instance;
+            return that.NieuweStages;
+        }
+        private void set_25_LineUpVM_NieuweStages(object instance, object Value)
+        {
+            var that = (global::StoreApp.DataModel.LineUpVM)instance;
+            that.NieuweStages = (global::System.Collections.ObjectModel.ObservableCollection<global::FestivalLibPortable.Stage>)Value;
         }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
@@ -216,19 +769,163 @@ namespace StoreApp.StoreApp_XamlTypeInfo
 
             switch (longMemberName)
             {
-            case "StoreApp.Common.RichTextColumns.RichTextContent":
-                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("StoreApp.Common.RichTextColumns");
-                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "RichTextContent", "Windows.UI.Xaml.Controls.RichTextBlock");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_0_RichTextColumns_RichTextContent;
-                xamlMember.Setter = set_0_RichTextColumns_RichTextContent;
+            case "StoreApp.BandDetail.Band":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("StoreApp.BandDetail");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "Band", "FestivalLibPortable.Band");
+                xamlMember.Getter = get_0_BandDetail_Band;
+                xamlMember.Setter = set_0_BandDetail_Band;
                 break;
-            case "StoreApp.Common.RichTextColumns.ColumnTemplate":
-                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("StoreApp.Common.RichTextColumns");
-                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "ColumnTemplate", "Windows.UI.Xaml.DataTemplate");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_1_RichTextColumns_ColumnTemplate;
-                xamlMember.Setter = set_1_RichTextColumns_ColumnTemplate;
+            case "StoreApp.BandsPerGenre.Bands":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("StoreApp.BandsPerGenre");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "Bands", "System.Collections.Generic.List<FestivalLibPortable.Band>");
+                xamlMember.Getter = get_1_BandsPerGenre_Bands;
+                xamlMember.Setter = set_1_BandsPerGenre_Bands;
+                break;
+            case "FestivalLibPortable.Band.ID":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("FestivalLibPortable.Band");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "ID", "Int32");
+                xamlMember.Getter = get_2_Band_ID;
+                xamlMember.Setter = set_2_Band_ID;
+                break;
+            case "FestivalLibPortable.Band.Name":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("FestivalLibPortable.Band");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "Name", "String");
+                xamlMember.Getter = get_3_Band_Name;
+                xamlMember.Setter = set_3_Band_Name;
+                break;
+            case "FestivalLibPortable.Band.Picture":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("FestivalLibPortable.Band");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "Picture", "Byte[]");
+                xamlMember.Getter = get_4_Band_Picture;
+                xamlMember.Setter = set_4_Band_Picture;
+                break;
+            case "FestivalLibPortable.Band.Descr":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("FestivalLibPortable.Band");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "Descr", "String");
+                xamlMember.Getter = get_5_Band_Descr;
+                xamlMember.Setter = set_5_Band_Descr;
+                break;
+            case "FestivalLibPortable.Band.Twitter":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("FestivalLibPortable.Band");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "Twitter", "String");
+                xamlMember.Getter = get_6_Band_Twitter;
+                xamlMember.Setter = set_6_Band_Twitter;
+                break;
+            case "FestivalLibPortable.Band.Facebook":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("FestivalLibPortable.Band");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "Facebook", "String");
+                xamlMember.Getter = get_7_Band_Facebook;
+                xamlMember.Setter = set_7_Band_Facebook;
+                break;
+            case "FestivalLibPortable.Band.Genres":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("FestivalLibPortable.Band");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "Genres", "System.Collections.Generic.IEnumerable<FestivalLibPortable.Genre>");
+                xamlMember.Getter = get_8_Band_Genres;
+                xamlMember.Setter = set_8_Band_Genres;
+                break;
+            case "StoreApp.DataModel.GenreVM.Genres":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("StoreApp.DataModel.GenreVM");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "Genres", "System.Collections.Generic.List<FestivalLibPortable.Genre>");
+                xamlMember.Getter = get_9_GenreVM_Genres;
+                xamlMember.Setter = set_9_GenreVM_Genres;
+                break;
+            case "FestivalLibPortable.Genre.ID":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("FestivalLibPortable.Genre");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "ID", "Int32");
+                xamlMember.Getter = get_10_Genre_ID;
+                xamlMember.Setter = set_10_Genre_ID;
+                break;
+            case "FestivalLibPortable.Genre.Name":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("FestivalLibPortable.Genre");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "Name", "String");
+                xamlMember.Getter = get_11_Genre_Name;
+                xamlMember.Setter = set_11_Genre_Name;
+                break;
+            case "StoreApp.DataModel.GenreVM.NieuweGenres":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("StoreApp.DataModel.GenreVM");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "NieuweGenres", "System.Collections.ObjectModel.ObservableCollection<FestivalLibPortable.Genre>");
+                xamlMember.Getter = get_12_GenreVM_NieuweGenres;
+                xamlMember.Setter = set_12_GenreVM_NieuweGenres;
+                break;
+            case "StoreApp.DataModel.BandVM.Bands":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("StoreApp.DataModel.BandVM");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "Bands", "System.Collections.Generic.List<FestivalLibPortable.Band>");
+                xamlMember.Getter = get_13_BandVM_Bands;
+                xamlMember.Setter = set_13_BandVM_Bands;
+                break;
+            case "StoreApp.DataModel.BandVM.SelectedBand":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("StoreApp.DataModel.BandVM");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "SelectedBand", "FestivalLibPortable.Band");
+                xamlMember.Getter = get_14_BandVM_SelectedBand;
+                xamlMember.Setter = set_14_BandVM_SelectedBand;
+                break;
+            case "StoreApp.DataModel.BandVM.BandAsync2":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("StoreApp.DataModel.BandVM");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "BandAsync2", "FestivalLibPortable.Band");
+                xamlMember.SetTargetTypeName("String");
+                xamlMember.SetIsAttachable();
+                xamlMember.Getter = get_15_BandVM_BandAsync2;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "StoreApp.DataModel.LineUpVM.Stages":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("StoreApp.DataModel.LineUpVM");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "Stages", "System.Collections.Generic.List<System.Collections.Generic.List<FestivalLibPortable.Stage>>");
+                xamlMember.Getter = get_16_LineUpVM_Stages;
+                xamlMember.Setter = set_16_LineUpVM_Stages;
+                break;
+            case "FestivalLibPortable.Stage.ID":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("FestivalLibPortable.Stage");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "ID", "Int32");
+                xamlMember.Getter = get_17_Stage_ID;
+                xamlMember.Setter = set_17_Stage_ID;
+                break;
+            case "FestivalLibPortable.Stage.Name":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("FestivalLibPortable.Stage");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "Name", "String");
+                xamlMember.Getter = get_18_Stage_Name;
+                xamlMember.Setter = set_18_Stage_Name;
+                break;
+            case "FestivalLibPortable.Stage.Bands":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("FestivalLibPortable.Stage");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "Bands", "System.Collections.Generic.IEnumerable<FestivalLibPortable.LineUp>");
+                xamlMember.Getter = get_19_Stage_Bands;
+                xamlMember.Setter = set_19_Stage_Bands;
+                break;
+            case "FestivalLibPortable.Stage.datum":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("FestivalLibPortable.Stage");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "datum", "System.DateTime");
+                xamlMember.Getter = get_20_Stage_datum;
+                xamlMember.Setter = set_20_Stage_datum;
+                break;
+            case "FestivalLibPortable.Stage.lineup":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("FestivalLibPortable.Stage");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "lineup", "FestivalLibPortable.LineUp");
+                xamlMember.Getter = get_21_Stage_lineup;
+                xamlMember.Setter = set_21_Stage_lineup;
+                break;
+            case "System.Collections.Generic.List<FestivalLibPortable.Stage>.Capacity":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("System.Collections.Generic.List<FestivalLibPortable.Stage>");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "Capacity", "Int32");
+                xamlMember.Getter = get_22_List_Capacity;
+                xamlMember.Setter = set_22_List_Capacity;
+                break;
+            case "System.Collections.Generic.List<FestivalLibPortable.Stage>.Count":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("System.Collections.Generic.List<FestivalLibPortable.Stage>");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "Count", "Int32");
+                xamlMember.Getter = get_23_List_Count;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "StoreApp.DataModel.LineUpVM.Name":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("StoreApp.DataModel.LineUpVM");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "Name", "String");
+                xamlMember.Getter = get_24_LineUpVM_Name;
+                xamlMember.Setter = set_24_LineUpVM_Name;
+                break;
+            case "StoreApp.DataModel.LineUpVM.NieuweStages":
+                userType = (global::StoreApp.StoreApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("StoreApp.DataModel.LineUpVM");
+                xamlMember = new global::StoreApp.StoreApp_XamlTypeInfo.XamlMember(this, "NieuweStages", "System.Collections.ObjectModel.ObservableCollection<FestivalLibPortable.Stage>");
+                xamlMember.Getter = get_25_LineUpVM_NieuweStages;
+                xamlMember.Setter = set_25_LineUpVM_NieuweStages;
                 break;
             }
             return xamlMember;

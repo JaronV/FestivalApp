@@ -7,6 +7,7 @@ using FestivalLib.Model;
 using System.Collections.ObjectModel;
 using GalaSoft.MvvmLight.Command;
 using System.Windows.Input;
+using System.Windows.Forms;
 
 namespace FestivalApp.ViewModel
 {
@@ -43,7 +44,7 @@ namespace FestivalApp.ViewModel
             set { beginDatum = value ; OnPropertyChanged("BeginDatum"); }
         }
         private DateTime eindDatum = DateTime.Today;
-      //  private String eindDatum = DateTime.Today.ToShortDateString();
+    
         public DateTime EindDatum
         {
             get { return eindDatum;  }
@@ -105,7 +106,7 @@ namespace FestivalApp.ViewModel
         #endregion
 
         #region commands
-        //Tickettype commands
+      
         
 
         //GenreCommands
@@ -212,20 +213,38 @@ namespace FestivalApp.ViewModel
                 return new RelayCommand(AddFestival);
             }
         }
-        public ICommand DeleteFestivalCommand
-        {
-            get
-            {
-                return new RelayCommand(DeleteFestival);
-            }
-        }
+    
 
 
 
         #endregion
-
+        private bool SaveValidStage()
+        {
+            if (SelectedStage != null)
+            {
+                return SelectedStage.IsValid();
+            }
+            else return false;
+        }
+        private bool SaveValidGenre()
+        {
+            if (SelectedGenre != null)
+            {
+                return SelectedGenre.IsValid();
+            }
+            else return false;
+        }
+        private bool SaveValidType()
+        {
+            if (SelectedContactPerson != null)
+            {
+                return SelectedContactPerson.IsValid();
+            }
+            else return false;
+        }
         private void AddFestival()
         {
+            Festival.DeleteType();
           
             //DateTime.Today.ToString("yyyy-MM-dd")
             string begin = BeginDatum.ToString("yyyy-dd-MM");
@@ -239,11 +258,6 @@ namespace FestivalApp.ViewModel
             
         }
 
-        private void DeleteFestival()
-        {
-            
-        }
-        
         //Stage methods
 
         public void AddStage()
@@ -255,18 +269,53 @@ namespace FestivalApp.ViewModel
         }
         public void SaveStage()
         {
-            Stage.AddType(SelectedStage);
-            Podiums = Stage.GetStages();
-            
+            if (SaveValidStage())
+            {
+                Stage.AddType(SelectedStage);
+                Podiums = Stage.GetStages();
+            }
+            else { MessageBox.Show("zijn alle velden correct aangevuld?"); }
         }
         public void DeleteStage()
         {
-            Stage.DeleteType(SelectedStage);
-            Podiums.Remove(SelectedStage);
+            if (SelectedStage != null)
+            {
+                if (SelectedStage.ID != 0)
+                {
+                    Stage.DeleteType(SelectedStage);
+                    Podiums.Remove(SelectedStage);
+                }
+                else
+                {
+                    MessageBox.Show("dit is een ongeldige actie");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Gelieve eerst een Item te selecteren");
+            }
+            
         }
         private void EditStage()
         {
-            Stage.EditStage(SelectedStage);
+            if (SelectedStage != null)
+            {
+                if (SelectedStage.ID != 0)
+                {
+                    Stage.EditStage(SelectedStage);
+                }
+                else
+                {
+                    MessageBox.Show("dit is een ongeldige actie");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Gelieve eerst een Item te selecteren");
+            }
+          
         }
        
        
@@ -281,20 +330,57 @@ namespace FestivalApp.ViewModel
         }
         private void SaveGenre()
         {
-            Genre.AddType(SelectedGenre);
-            Genres = Genre.GetGenres();
+            if (SaveValidGenre())
+            {
+                Genre.AddType(SelectedGenre);
+                Genres = Genre.GetGenres();
+            }
+            else { MessageBox.Show("zijn alle velden correct aangevuld?"); }
         }
         private void DeleteGenre()
         {
-            Genre.DeleteType(SelectedGenre);
-            Genres.Remove(SelectedGenre);
+            if (SelectedGenre != null)
+            {
+                if (SelectedGenre.ID != 0)
+                {
+                    Genre.DeleteType(SelectedGenre);
+                    Genres.Remove(SelectedGenre);
+                    Genres = Genre.GetGenres();
+                }
+                else
+                {
+                    MessageBox.Show("dit is een ongeldige actie");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Gelieve eerst een Item te selecteren");
+            }
+
+            
         }
         private void EditGenre()
         {
-           Genre.EditGenre(SelectedGenre);
+            if (SelectedGenre != null)
+            {
+                if (SelectedGenre.ID != 0)
+                {
+                    Genre.EditGenre(SelectedGenre);
+                }
+                else
+                {
+                    MessageBox.Show("dit is een ongeldige actie");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Gelieve eerst een Item te selecteren");
+            }
+         
         }
         //ContactpersonType methods
-
         private void AddContactPersonType()
         {
             ContactpersonType NewType = new ContactpersonType();
@@ -302,21 +388,60 @@ namespace FestivalApp.ViewModel
 
             SelectedContactPerson = NewType;
         }
-
         private void SaveContactPersonType()
         {
-            ContactpersonType.AddType(SelectedContactPerson);
-            ContactPersonTypes = ContactpersonType.GetContactPersonType();
+            if (SaveValidType())
+            {
+                ContactpersonType.AddType(SelectedContactPerson);
+                ContactPersonTypes = ContactpersonType.GetContactPersonType();
+            }
+            else { MessageBox.Show("zijn alle velden correct aangevuld?"); }
         }
-
         private void DeleteContactPerson()
         {
-            ContactpersonType.DeleteType(SelectedContactPerson);
-            ContactPersonTypes.Remove(SelectedContactPerson);
+            if (SelectedContactPerson != null)
+            {
+                if (SelectedContactPerson.ID != 0)
+                {
+                    ContactpersonType.DeleteType(SelectedContactPerson);
+                    ContactPersonTypes.Remove(SelectedContactPerson);
+                    ContactPersonTypes = ContactpersonType.GetContactPersonType();
+
+                }
+                else
+                {
+                    MessageBox.Show("dit is een ongeldige actie");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Gelieve eerst een Item te selecteren");
+            }
+         
+      
         }
         private void Editcp()
         {
-            ContactpersonType.Editct(SelectedContactPerson);
+            if (SelectedContactPerson != null)
+            {
+                if (SelectedContactPerson.ID != 0)
+                {
+                    ContactpersonType.Editct(SelectedContactPerson);
+
+                }
+                else
+                {
+                    MessageBox.Show("dit is een ongeldige actie");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Gelieve eerst een Item te selecteren");
+            }
+         
+           
         }
 
         

@@ -76,7 +76,7 @@ namespace FestivalLib.Model
                 DbParameter paramName = Database.AddParameter("@Name", SelectedContactPerson.Name);
                 DbParameter paramCompany = Database.AddParameter("@Company", SelectedContactPerson.Company);
                 DbParameter paramCity = Database.AddParameter("@City", SelectedContactPerson.City);
-                DbParameter paramJobrole = Database.AddParameter("@JobRole", SelectedContactPerson.JobRole.Name);
+                DbParameter paramJobrole = Database.AddParameter("@JobRole", SelectedContactPerson.JobRole.ID);
                 DbParameter paramPhone = Database.AddParameter("@Phone", SelectedContactPerson.Phone);
                 DbParameter paramCellphone = Database.AddParameter("@Cellphone", SelectedContactPerson.Cellphone);
                 DbParameter paramEmail = Database.AddParameter("@Email", SelectedContactPerson.Email);
@@ -165,6 +165,19 @@ namespace FestivalLib.Model
                 }
                 return String.Empty;
             }
+        }
+        public static ObservableCollection<Contactperson> GetContactsByString(ObservableCollection<Contactperson> lst, string search)
+        {
+            ObservableCollection<Contactperson> lstGevondenContacts = new ObservableCollection<Contactperson>();
+            foreach (Contactperson contact in lst)
+            {
+                if (contact.Name.ToUpper().Contains(search.ToUpper()) || contact.City.ToUpper().Contains(search.ToUpper()) || contact.Company.ToUpper().Contains(search.ToUpper()) || contact.Email.ToUpper().Contains(search.ToUpper()) || contact.Cellphone.ToUpper().Contains(search.ToUpper()) || contact.Phone.ToUpper().Contains(search.ToUpper()))
+                {
+                    lstGevondenContacts.Add(contact);
+                }
+            }
+
+            return lstGevondenContacts;
         }
     }
 }

@@ -15,7 +15,7 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-
+        <DataModel:LineUpVM x:Key="bndInstance"/>
         <!--
             Collection of grouped items displayed by this page, bound to a subset
             of the complete item list because items in groups cannot be virtualized

@@ -15,14 +15,19 @@ namespace FestivalLib.Model
     public class Band : IDataErrorInfo
     {
         public int ID { get; set; }
+
         [Required(ErrorMessage = "De naam is verplicht")]
         public String Name { get; set; }
+
         public byte[] Picture { get; set; }
-        [Required(ErrorMessage = "De naam is verplicht")]
+
+        [Required(ErrorMessage = "De Beschrijving is verplicht")]
         public String Description { get; set; }
-        [Required(ErrorMessage = "De naam is verplicht")]
+
+        [Required(ErrorMessage = "Twitter is verplicht")]
         public String Twitter { get; set; }
-        [Required(ErrorMessage = "De naam is verplicht")]
+
+        [Required(ErrorMessage = "Facebook is verplicht")]
         public String Facebook { get; set; }
       //  public ObservableCollection<Genre> Genres { get; set; }
         public static ObservableCollection<Band> Soorten = new ObservableCollection<Band>();
@@ -143,12 +148,21 @@ namespace FestivalLib.Model
         }
         public static void DeleteBandFromLineUp(int lineupID)
         {
-            string sql = "DELETE FROM lineup WHERE lineup_id = @lineupID;";
+            string sql = "DELETE  FROM lineup WHERE lineup_band = @lineupID;";
             DbParameter parLineUpID = Database.AddParameter("@lineupID", lineupID);
             Database.ModifyData(sql, parLineUpID);
            
            
         }
+        public static void DeleteLineUp(int lineupID)
+        {
+            string sql = "DELETE  FROM lineup WHERE lineup_id = @lineupID;";
+            DbParameter parLineUpID = Database.AddParameter("@lineupID", lineupID);
+            Database.ModifyData(sql, parLineUpID);
+
+
+        }
+
         public static void EditBand(Band band, ObservableCollection<Genre> Huidigegenres)
         {
             try
